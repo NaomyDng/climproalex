@@ -29,8 +29,8 @@
   <meta name="twitter:image" content="https://www.climpro.be/assets/img/entre.webp?v=6">
 
   <!-- Perfs -->
-  <link rel="preconnect" href="https://formspree.io" crossorigin>
-  <link rel="dns-prefetch" href="https://formspree.io">
+  <link rel="preconnect" href="https://formspree.io/f/xyzdgabo" crossorigin>
+  <link rel="dns-prefetch" href="https://formspree.io/f/xyzdgabo">
 
   <link rel="stylesheet" href="assets/css/style.css?v=6" />
   <script defer src="assets/js/main.js?v=6"></script>
@@ -214,47 +214,86 @@
         <button class="modal__close" type="button" data-close-modal aria-label="Fermer le formulaire"><span class="x1"></span><span class="x2"></span></button>
       </div>
 
-      <form id="form-devis" class="form" aria-label="Formulaire d’entretien"
-            action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
-        <input type="hidden" name="page_source" id="page_source" value="">
-        <input type="text" name="hp" id="hp" style="display:none" tabindex="-1" autocomplete="off">
-        <fieldset>
-          <legend id="form-title">Demande d’entretien</legend>
-          <div class="form__row">
-            <div class="field"><label for="fullname">Prénom & Nom *</label><input id="fullname" name="fullname" required autocomplete="name"></div>
-            <div class="field"><label for="postal">Code postal *</label><input id="postal" name="postal" inputmode="numeric" pattern="[0-9]{4,5}" required></div>
-          </div>
-          <div class="form__row">
-            <div class="field"><label for="email">Email (ou téléphone) *</label><input id="email" name="email" type="email" autocomplete="email"></div>
-            <div class="field"><label for="phone">Téléphone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="02 428 40 35"></div>
-          </div>
-          <div class="form__row">
-            <div class="field">
-              <label for="service">Service souhaité *</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Choisir…</option>
-                <option>Installation climatisation</option>
-                <option>Entretien</option>
-                <option>Dépannage</option>
-                <option>Autre</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="appareils">Nombre d’appareils (optionnel)</label>
-              <select id="appareils" name="appareils">
-                <option value="">—</option>
-                <option>1</option><option>2</option><option>3</option>
-                <option>4</option><option>5</option><option>6+</option>
-              </select>
-            </div>
-          </div>
-          <div class="field"><label for="message">Votre message *</label><textarea id="message" name="message" rows="5" required></textarea></div>
-          <div class="field field--check"><label for="consent"><input type="checkbox" id="consent" name="consent" required> J’accepte d’être recontacté(e) par Climpro.</label></div>
-          <div class="form__actions"><button type="submit" class="btn btn--primary" id="form-cta">Envoyer la demande</button><p class="form__legal">Champs requis marqués *. Réponse sous 24h ouvrées.</p></div>
-          <div id="formSuccess" class="form__success" role="status" aria-live="polite" hidden>Merci ! Votre demande a bien été envoyée. Nous vous contactons très vite.</div>
-          <input type="hidden" name="_subject" value="NOUVELLE DEMANDE — Climpro">
-        </fieldset>
-      </form>
+      <form id="form-devis"
+      class="form a-reveal"
+      aria-label="Formulaire de devis"
+      action="https://formspree.io/f/xyzdgabo"
+      method="POST"
+      novalidate>
+
+  <input type="hidden" name="page_source" id="page_source" value="">
+  <input type="text" name="hp" id="hp" style="display:none" tabindex="-1" autocomplete="off">
+
+  <fieldset>
+    <legend id="form-title">Demande de devis gratuit</legend>
+
+    <div class="form__row">
+      <div class="field">
+        <label for="fullname">Prénom & Nom *</label>
+        <input id="fullname" name="fullname" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="postal">Code postal *</label>
+        <input id="postal" name="postal" inputmode="numeric" pattern="[0-9]{4,5}" required>
+      </div>
+    </div>
+
+    <div class="form__row">
+      <div class="field">
+        <label for="email">Email (ou téléphone) *</label>
+        <input id="email" name="email" type="email" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="phone">Téléphone</label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="02 428 40 35">
+      </div>
+    </div>
+
+    <div class="form__row">
+      <div class="field">
+        <label for="service">Service souhaité *</label>
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Choisir…</option>
+          <option>Installation climatisation</option>
+          <option>Entretien</option>
+          <option>Dépannage</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="appareils">Nombre d’appareils (optionnel)</label>
+        <select id="appareils" name="appareils">
+          <option value="">—</option>
+          <option>1</option><option>2</option><option>3</option>
+          <option>4</option><option>5</option><option>6+</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="message">Votre message *</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+
+    <div class="field field--check">
+      <label for="consent">
+        <input type="checkbox" id="consent" name="consent" required>
+        J’accepte d’être recontacté(e) par Climpro.
+      </label>
+    </div>
+
+    <div class="form__actions">
+      <button type="submit" class="btn btn--primary" id="form-cta">Envoyer la demande</button>
+      <p class="form__legal">Champs requis marqués *. Réponse sous 24h ouvrées.</p>
+    </div>
+
+    <div id="formSuccess" class="form__success" role="status" aria-live="polite" hidden>
+      Merci ! Votre demande a bien été envoyée. Nous vous contactons très vite.
+    </div>
+
+    <input type="hidden" name="_subject" value="NOUVELLE DEMANDE — Climpro">
+  </fieldset>
+</form>
     </div>
   </div>
 
