@@ -674,37 +674,31 @@ h6 {
   line-height: 1.4;
   margin-block: 0.4em 0.25em;
 }
-/* ===== Mobile / petits écrans ===== */
 @media (max-width: 768px) {
   .header .container.nav-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;   /* logo à gauche, menu à droite */
+    justify-content: space-between;   /* sépare gauche/droite */
+    flex-direction: row-reverse;      /* inverse l’ordre : logo à droite, menu à gauche */
     width: 100%;
-    padding: 0 16px;                  /* petit air sur les bords */
-    gap: 0;
+    padding: 0 16px;
   }
 
-  /* on cache les contacts pour libérer la place */
+  /* cacher les contacts sur mobile pour garder de la place */
   .quick-contacts { 
     display: none !important; 
   }
 
-  /* logo visible et contenu */
-  .logo-wrap { 
-    display: block; 
-    max-width: 45vw;                  /* évite qu'il déborde */
+  /* Logo aligné à droite */
+  .logo-wrap {
+    display: block;
+    max-width: 45vw;   /* évite que le logo déborde */
   }
   .logo {
     display: block;
-    max-height: 48px;                 /* ajuste si tu veux plus grand/petit */
+    max-height: 48px;  /* ajuste la taille */
     height: auto;
     width: auto;
-  }
-
-  /* bouton menu collé à droite */
-  .hamburger {
-    margin-left: auto;                /* sécurité, au cas où */
   }
 }
 
