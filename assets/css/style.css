@@ -674,29 +674,49 @@ h6 {
   line-height: 1.4;
   margin-block: 0.4em 0.25em;
 }
-/* === NAVBAR MOBILE : hamburger à gauche, logo à droite === */
-@media (max-width: 720px){
-  .nav-inner{
-    height:64px;
-    align-items:center;
-    padding-left: 8px;
-    padding-right: 12px;
-    gap: 8px;
-    justify-content: space-between;
-  }
-  .logo-wrap{
-    margin-left: 0;          /* annule tout décalage négatif */
-    height: 56px;            /* borne la zone cliquable */
-  }
-  .logo{
-    height: 120px;           /* logo un peu plus compact que 130px */
-    margin-top: -44px;       /* remonte juste ce qu'il faut sans déborder */
-  }
-  .hamburger{
-    margin-right: 0;
-  }
-}
+/* === NAVBAR MOBILE — hamburger à gauche, logo à droite (force override) === */
+@media (max-width: 768px){
 
-  /* Contacts masqués pour libérer de la place */
-  .header .quick-contacts{ display: none !important; }
+  /* Conteneur : extrémités + padding uniforme */
+  header.header .container.nav-inner{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 16px !important;
+    gap: 12px !important;
+  }
+
+  /* Réinitialise tout ce qui pouvait décaler */
+  header.header .container.nav-inner .hamburger,
+  header.header .container.nav-inner .logo-wrap{
+    position: static !important;
+    left: auto !important; right: auto !important; top: auto !important;
+    transform: none !important;
+  }
+
+  /* Hamburger à GAUCHE (en premier) */
+  header.header .container.nav-inner .hamburger{
+    order: 1 !important;
+    margin: 0 !important;
+    margin-right: auto !important;   /* le pousse à gauche */
+    margin-left: 0 !important;
+  }
+
+  /* Logo à DROITE (en dernier) */
+  header.header .container.nav-inner .logo-wrap{
+    order: 2 !important;
+    margin: 0 !important;
+    margin-left: auto !important;    /* l’aligne à droite */
+    /* annule les marges négatives globales */
+    margin-right: 0 !important;
+  }
+
+  /* Neutralise SPECIFIQUEMENT la marge négative globale du logo */
+  .logo-wrap{ margin-left: 0 !important; }
+
+  /* Le hamburger ne colle plus au bord droit (ancienne règle -18px) */
+  .hamburger{ margin-right: 0 !important; }
+
+  /* Contacts masqués pour garder la place */
+  header.header .quick-contacts{ display: none !important; }
 }
