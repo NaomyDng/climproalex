@@ -735,3 +735,14 @@ h6 {
   /* Masquer les contacts sur mobile pour libérer la ligne */
   .header .quick-contacts{ display:none !important; }
 }
+@media (max-width: 768px){
+  .hamburger{ width:44px; height:44px; display:flex; align-items:center; justify-content:center; gap:4px; }
+  .hamburger span{
+    width: 24px !important;   /* même largeur pour les 3 */
+    height: 2px !important;   /* même épaisseur */
+    margin: 0 !important;
+  }
+  /* supprime les largeurs différentes définies plus haut */
+  .hamburger span:nth-child(2),
+  .hamburger span:nth-child(3){ width:24px !important; }
+}
