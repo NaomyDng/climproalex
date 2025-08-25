@@ -731,20 +731,20 @@ h6 {
   }
 
   /* Logo (un peu rentré) */
-  header.header a.logo-wrap{
+  header.header a.hamburger-wrap{
     margin: 0 !important;
     transform: none !important;
     margin-right: 12px !important;  /* espace avec le bord droit */
   }
 
-  header.header img.logo{
+  header.header img.hamburger{
     height: 48px !important;
     width: auto !important;
     margin: 0 !important;
   }
 
   /* Hamburger (un peu rentré à gauche) */
-  header.header .hamburger{
+  header.header .logo{
     margin-left: 12px !important;   /* espace avec le bord gauche */
     margin-right: 0 !important;
     order: -1 !important;           /* garde le bouton avant le logo */
