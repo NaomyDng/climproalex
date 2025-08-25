@@ -717,3 +717,10 @@ h6 {
   max-width: 40vw !important;
   margin-right: 12px !important; /* espace avec le bord droit */
 }
+@media (max-width: 768px) {
+  .header .logo-wrap {
+    position: relative !important;
+    right: -12px !important; /* décale le logo vers l'intérieur */
+  }
+}
+
