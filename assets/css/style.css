@@ -678,27 +678,31 @@ h6 {
   .header .container.nav-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;   /* sépare gauche/droite */
-    flex-direction: row-reverse;      /* inverse l’ordre : logo à droite, menu à gauche */
+    justify-content: flex-end; /* pousse tout à droite */
+    gap: 12px; /* espace entre le bouton et le logo */
     width: 100%;
-    padding: 0 16px;
+    padding: 0 12px;
   }
 
-  /* cacher les contacts sur mobile pour garder de la place */
-  .quick-contacts { 
-    display: none !important; 
+  /* on cache les contacts pour libérer de la place */
+  .quick-contacts {
+    display: none !important;
   }
 
-  /* Logo aligné à droite */
+  /* logo */
   .logo-wrap {
     display: block;
-    max-width: 45vw;   /* évite que le logo déborde */
+    max-width: 40vw; /* évite qu’il dépasse */
   }
   .logo {
     display: block;
-    max-height: 48px;  /* ajuste la taille */
+    max-height: 48px; /* ajuste selon ce que tu veux */
     height: auto;
     width: auto;
   }
-}
 
+  /* bouton hamburger */
+  .hamburger {
+    order: -1; /* le bouton vient avant le logo */
+  }
+}
