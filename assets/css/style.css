@@ -632,4 +632,46 @@ margin-top: -40px !important;   /* monte le bouton */
     margin-right: 10px !important; /* → plus à gauche */
   }
 }
+/* ============================================================
+   TITRES — corrige l’avertissement Lighthouse (deprecated API)
+   ============================================================ */
+
+/* Taille explicite pour les H1 dans sections/article/nav/aside */
+:where(section, article, nav, aside) h1 {
+  font-size: clamp(2rem, 2vw + 1rem, 2.5rem);
+  line-height: 1.2;
+  margin-block: 0.6em 0.4em;
+}
+
+/* Échelle typographique générale */
+h1 {
+  font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
+  line-height: 1.15;
+  margin-block: 0.6em 0.4em;
+}
+h2 {
+  font-size: clamp(1.8rem, 2.2vw + 0.8rem, 2.2rem);
+  line-height: 1.2;
+  margin-block: 0.6em 0.4em;
+}
+h3 {
+  font-size: clamp(1.4rem, 1.6vw + 0.6rem, 1.6rem);
+  line-height: 1.25;
+  margin-block: 0.5em 0.3em;
+}
+h4 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  margin-block: 0.5em 0.3em;
+}
+h5 {
+  font-size: 1rem;
+  line-height: 1.35;
+  margin-block: 0.4em 0.25em;
+}
+h6 {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-block: 0.4em 0.25em;
+}
 
