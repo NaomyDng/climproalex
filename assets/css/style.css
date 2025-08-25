@@ -710,3 +710,10 @@ h6 {
     display:none !important;
   }
 }
+/* Ajoute une marge à droite du logo */
+.header .logo-wrap {
+  order: 2 !important;
+  display: block !important;
+  max-width: 40vw !important;
+  margin-right: 12px !important; /* espace avec le bord droit */
+}
