@@ -52,6 +52,45 @@
     ]
   }
   </script>
+  <style id="nav-hotfix">
+@media (max-width:768px){
+  /* le conteneur sert de référence pour l'absolu */
+  .header .container.nav-inner{
+    position: relative !important;
+    height: 64px !important;
+    padding: 0 16px !important;  /* petit air des bords */
+  }
+  /* cache les contacts pour libérer la ligne */
+  .header .quick-contacts{ display:none !important; }
+
+  /* HAMBURGER : collé à gauche, centré verticalement */
+  .header .hamburger{
+    position: absolute !important;
+    left: 12px !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+  }
+
+  /* LOGO : collé à droite, centré verticalement */
+  .header a.logo-wrap{
+    position: absolute !important;
+    right: 12px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+  }
+
+  /* on neutralise les décalages globaux qui te faisaient sortir de l'écran */
+  .header a.logo-wrap, .header .hamburger{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <!-- NAVBAR -->
