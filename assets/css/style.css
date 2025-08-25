@@ -675,36 +675,27 @@ h6 {
   margin-block: 0.4em 0.25em;
 }
 /* === NAVBAR MOBILE : hamburger à gauche, logo à droite === */
-@media (max-width: 768px){
-  .header .container.nav-inner{
-    display: flex !important;
-    justify-content: space-between !important; /* pousse aux extrémités */
-    align-items: center !important;
-    flex-direction: row !important; /* ordre naturel : hamburger -> logo */
-    padding: 0 12px !important;
-    gap: 12px !important;
+@media (max-width: 720px){
+  .nav-inner{
+    height:64px;
+    align-items:center;
+    padding-left: 8px;
+    padding-right: 12px;
+    gap: 8px;
+    justify-content: space-between;
   }
-
-  /* Hamburger en premier (gauche) */
-  .header .hamburger{
-    order: 1 !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;
+  .logo-wrap{
+    margin-left: 0;          /* annule tout décalage négatif */
+    height: 56px;            /* borne la zone cliquable */
   }
-
-  /* Logo en dernier (droite) */
-  .header .logo-wrap{
-    order: 2 !important;
-    margin: 0 !important;
-    margin-left: auto !important;
-    margin-right: 0 !important;
+  .logo{
+    height: 120px;           /* logo un peu plus compact que 130px */
+    margin-top: -44px;       /* remonte juste ce qu'il faut sans déborder */
   }
-
-  .header .logo{
-    height: 48px !important;
-    width: auto !important;
-    margin: 0 !important;
+  .hamburger{
+    margin-right: 0;
   }
+}
 
   /* Contacts masqués pour libérer de la place */
   .header .quick-contacts{ display: none !important; }
