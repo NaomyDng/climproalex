@@ -724,53 +724,33 @@ h6 {
   }
 }
 
-/* ===== FINAL FIX: logo visible et rentré sur mobile ===== */
 @media (max-width: 768px){
-  /* conteneur: tout à droite, espace interne */
   header.header .container.nav-inner{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:flex-end !important;
-    padding:0 16px !important;
-    gap:10px !important;
+    justify-content: space-between !important; /* logo à droite, menu à gauche */
+    padding: 0 20px !important; /* espace intérieur équilibré */
   }
 
-  /* coupe les contacts pour libérer la place */
-  header.header .quick-contacts{ display:none !important; }
-
-  /* ANNULATION de toutes les marges/offsets qui poussaient à gauche */
+  /* Logo (un peu rentré) */
   header.header a.logo-wrap{
-    margin:0 !important;           /* annule margin-left:-65px etc. */
-    left:auto !important;
-    right:auto !important;
-    transform:none !important;
-    position:relative !important;
-    height:50px !important;
-    display:flex !important; align-items:center !important;
-    /* pousse volontairement le logo vers l'intérieur à droite */
-    margin-right: 24px !important; /* ↑ augmente si tu veux plus d’air */
+    margin: 0 !important;
+    transform: none !important;
+    margin-right: 12px !important;  /* espace avec le bord droit */
   }
 
   header.header img.logo{
-    height:48px !important;
-    width:auto !important;
-    max-width:none !important;
-    margin:0 !important;
+    height: 48px !important;
+    width: auto !important;
+    margin: 0 !important;
   }
 
-  /* hamburger juste avant le logo */
+  /* Hamburger (un peu rentré à gauche) */
   header.header .hamburger{
-    order:1 !important;
-    margin:0 !important;
-    position:static !important;
+    margin-left: 12px !important;   /* espace avec le bord gauche */
+    margin-right: 0 !important;
+    order: -1 !important;           /* garde le bouton avant le logo */
   }
-  header.header a.logo-wrap{ order:2 !important; }
+
+  /* Contacts masqués sur mobile */
+  header.header .quick-contacts{ display: none !important; }
 }
 
-/* Fallback si un vieux style résiste encore :
-   on force un décalage visuel du logo vers la droite. */
-@media (max-width: 768px){
-  header.header a.logo-wrap{
-    transform: translateX(32px) !important; /* ↑ mets 40–56px si besoin */
-  }
-}
