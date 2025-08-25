@@ -696,41 +696,42 @@ h6 {
   }
 }
 
-/* Subpages: stop images from stretching columns on mobile */
-@media (max-width: 980px){
-  .maintenance__media,
-  .repair__media{
-    height: auto;
+/* === FIX MOBILE HEADER: hamburger à gauche / logo à droite === */
+@media (max-width: 768px){
+  .header .nav-inner{
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: relative !important;
   }
-  .maintenance__media img,
-  .repair__media img{
-    height: auto;
-    object-fit: contain;     /* évite le crop et les chevauchements */
+
+  /* Hamburger à gauche */
+  .header .hamburger{
+    order: 1 !important;
+    margin: 0 !important;
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
   }
+
+  /* Logo à droite */
+  .header .logo-wrap{
+    order: 2 !important;
+    margin: 0 !important;
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    max-width: 40vw !important; /* pour ne pas déborder */
+  }
+
+  .header .logo{
+    height: 48px !important; /* taille safe sur mobile */
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  /* Masquer les contacts sur mobile pour libérer la ligne */
+  .header .quick-contacts{ display:none !important; }
 }
-
-/* Space the “CTA under image” nicely on narrow screens */
-@media (max-width: 720px){
-  .maintenance__cta,
-  .repair__cta{
-    margin-top: 10px;
-  }
-  .maintenance__cta .btn,
-  .repair__cta .btn{
-    width: 100%;
-  }
-}
-
-/* Colonne gauche empilée (image + CTA) */
-.maintenance{ align-items: start; } /* évite les égalisations de hauteur gênantes */
-.maintenance__col{ display:flex; flex-direction:column; gap:10px; }
-
-/* Sécurise les médias pour éviter tout chevauchement */
-.maintenance__media{ height:auto; }
-.maintenance__media img{ width:100%; height:auto; object-fit:cover; display:block; }
-
-/* CTA large sur mobile */
-@media (max-width:720px){
-  .maintenance__cta .btn{ width:100%; }
-}
-
