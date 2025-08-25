@@ -674,84 +674,38 @@ h6 {
   line-height: 1.4;
   margin-block: 0.4em 0.25em;
 }
-/* ===== Fix navbar mobile : logo + hamburger alignés à droite ===== */
-@media (max-width: 768px) {
-  .header .container.nav-inner{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:flex-end !important; /* pousse à droite */
-    gap:12px !important;
-    width:100% !important;
-    padding:0 12px !important;
-  }
-
-  /* le bouton avant le logo */
-  .header .hamburger{
-    order:1 !important;
-    margin:0 !important;
-    position:static !important; /* au cas où il était en absolute */
-  }
-
-  .header .logo-wrap{
-    order:2 !important;
-    display:block !important;
-    max-width:40vw !important;  /* évite qu'il déborde */
-  }
-
-  .header .logo{
-    display:block !important;
-    height:auto !important;
-    width:auto !important;
-    max-height:56px !important; /* ajuste si tu veux plus grand/petit */
-  }
-
-  /* on libère la place */
-  .header .quick-contacts{
-    display:none !important;
-  }
-}
-/* Ajoute une marge à droite du logo */
-.header .logo-wrap {
-  order: 2 !important;
-  display: block !important;
-  max-width: 40vw !important;
-  margin-right: 12px !important; /* espace avec le bord droit */
-}
-@media (max-width: 768px) {
-  .header .logo-wrap {
-    position: relative !important;
-    right: -12px !important; /* décale le logo vers l'intérieur */
-  }
-}
-
+/* === NAVBAR MOBILE : hamburger à gauche, logo à droite === */
 @media (max-width: 768px){
-  header.header .container.nav-inner{
+  .header .container.nav-inner{
     display: flex !important;
-    align-items: center !important;
     justify-content: space-between !important; /* pousse aux extrémités */
-    padding: 0 16px !important;
+    align-items: center !important;
+    flex-direction: row !important; /* ordre naturel : hamburger -> logo */
+    padding: 0 12px !important;
+    gap: 12px !important;
   }
 
-  /* Hamburger à gauche */
-  header.header .hamburger{
+  /* Hamburger en premier (gauche) */
+  .header .hamburger{
     order: 1 !important;
     margin-left: 0 !important;
     margin-right: auto !important;
   }
 
-  /* Logo à droite */
-  header.header .logo-wrap{
+  /* Logo en dernier (droite) */
+  .header .logo-wrap{
     order: 2 !important;
     margin: 0 !important;
     margin-left: auto !important;
     margin-right: 0 !important;
   }
 
-  header.header img.logo{
+  .header .logo{
     height: 48px !important;
     width: auto !important;
+    margin: 0 !important;
   }
 
-  /* Contacts masqués */
-  header.header .quick-contacts{ display: none !important; }
+  /* Contacts masqués pour libérer de la place */
+  .header .quick-contacts{ display: none !important; }
 }
