@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dépannages climatisation toutes marques | ClimPro Bruxelles</title>
+  <meta name="description" content="Dépannage climatisation en 24h à Bruxelles & Brabant. Toutes marques (Daikin, LG, Fujitsu, Mitsubishi, Panasonic…). Diagnostic rapide, réparation soignée." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.climpro.be/depannage.html" />
+
+  <!-- Open Graph (ajout) -->
+  <meta property="og:title" content="Dépannages climatisation toutes marques | ClimPro Bruxelles">
+  <meta property="og:description" content="Dépannage en 24h à Bruxelles & Brabant. Toutes marques. Diagnostic rapide, réparation soignée.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.climpro.be/depannage.html">
+  <meta property="og:image" content="https://www.climpro.be/assets/img/depart.webp?v=6">
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/img/favicon.svg?v=6" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png?v=6" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=6">
+  <link rel="mask-icon" href="assets/img/mask-icon.svg?v=6" color="#0ea5e9">
+  <meta name="theme-color" content="#0ea5e9">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dépannages climatisation toutes marques | ClimPro Bruxelles">
+  <meta name="twitter:description" content="Intervention 24h, diagnostic clair, pièces d’origine.">
+  <meta name="twitter:image" content="https://www.climpro.be/assets/img/depart.webp?v=6">
+
+  <!-- Perfs -->
+  <link rel="preconnect" href="https://formspree.io" crossorigin>
+  <link rel="dns-prefetch" href="https://formspree.io">
+
+  <link rel="stylesheet" href="assets/css/style.css?v=6" />
+  <script defer src="assets/js/main.js?v=6"></script>
+
+  <style>
+    main{ padding-top:64px; }
+    .intro{ padding:24px 0 8px; }
+    .repair{ display:grid; gap:24px; grid-template-columns: 1.1fr .9fr; align-items:stretch; }
+    .repair__media{ border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; background:#fff; box-shadow: var(--shadow); height:100%; }
+    .repair__media img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .checklist{ margin:10px 0 0; padding-left:18px; }
+    .steps{ margin-top:14px; }
+    .steps .card h3{ margin-bottom:6px; }
+    .modal{ position:fixed; inset:0; display:none; z-index:70; background: rgba(15,23,42,.55); backdrop-filter: blur(6px); }
+    .modal.open{ display:grid; place-items:center; }
+    .modal__dialog{ width:min(760px, 92%); max-height:90vh; overflow:auto; background:#fff; border:1px solid #e2e8f0; border-radius:16px; box-shadow: var(--shadow); padding:18px; }
+    .modal__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; }
+    .modal__title{ margin:0; font-size:1.2rem; }
+    .modal__close{ width:40px; height:40px; border-radius:12px; border:1px solid #e2e8f0; background:#f8fafc; display:grid; place-items:center; cursor:pointer; position:relative; }
+    .modal__close span{ position:absolute; width:18px; height:2px; background:#0f172a; border-radius:2px; }
+    .modal__close .x1{ transform: rotate(45deg); }
+    .modal__close .x2{ transform: rotate(-45deg); }
+    @media (max-width: 980px){ .repair{ grid-template-columns: 1fr; } }
+  </style>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Dépannage climatisation","provider":{"@type":"HVACBusiness","name":"ClimPro"},"areaServed":["Bruxelles-Capitale","Brabant Wallon","Brabant Flamand","Hainaut","Namur"],"serviceType":"Dépannage climatisation toutes marques"}
+  </script>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="container nav-inner">
+      <a href="index.html#top" class="logo-wrap" aria-label="ClimPro Accueil">
+        <img src="assets/img/logo.webp?v=6" alt="ClimPro" class="logo" />
+      </a>
+      <nav class="quick-contacts" aria-label="Contacts rapides">
+        <a class="chip chip--tel" href="tel:024284035"><span>02 428 40 35</span></a>
+        <a class="chip chip--mail" href="mailto:info@climpro.be"><span>info@climpro.be</span></a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+
+    <div class="menu" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+      <div class="menu__panel">
+        <button class="menu__close" id="menuClose" aria-label="Fermer le menu"><span></span><span></span></button>
+        <div class="menu__hero">
+          <p class="menu__badge">CLIMPRO • 20+ ans d’exigence</p>
+          <h2 id="menu-title">Naviguer</h2>
+          <div class="menu__quick">
+            <a href="tel:024284035" class="btn btn--primary">Appeler</a>
+            <button class="btn btn--ghost open-devis" type="button">Devis express</button>
+          </div>
+        </div>
+        <ul class="menu__links">
+          <li><a href="index.html"><span>Accueil</span><i aria-hidden="true">→</i></a></li>
+          <li><a href="installation.html"><span>Installation</span><i aria-hidden="true">→</i></a></li>
+          <li><a href="entretien.html"><span>Entretien</span><i aria-hidden="true">→</i></a></li>
+          <li><a href="depannage.html"><span>Dépannage</span><i aria-hidden="true">→</i></a></li>
+          <li><a href="index.html#devis"><span>Demander un devis</span><i aria-hidden="true">→</i></a></li>
+          <li><a href="index.html#contact"><span>Contact</span><i aria-hidden="true">→</i></a></li>
+        </ul>
+        <div class="menu__contacts">
+          <a href="tel:024284035" class="chip chip--tel">02 428 40 35</a>
+          <a href="mailto:info@climpro.be" class="chip chip--mail">info@climpro.be</a>
+          <p class="addr">140 Rodenemweg 1500 Halle</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (structure identique à l'accueil) -->
+  <section class="hero" aria-label="Dépannage — Hero">
+    <div class="hero__bg">
+     <img
+  src="assets/img/depart.webp?v=6"
+  alt="Dépannage de climatisation à Bruxelles et Brabant"
+  fetchpriority="high"
+  decoding="async"
+  sizes="100vw"
+  style="aspect-ratio:16/9;width:100%;height:100%;object-fit:cover"
+/>
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <div class="hero__badge a-reveal">
+        <strong>Dépannage climatisation</strong> • Diagnostic • Réparation • Tests
+      </div>
+      <h1 class="hero__title a-reveal">
+        DÉPANNAGE
+        <span>Bruxelles & Brabant</span>
+      </h1>
+
+      <div class="hero__cta a-reveal">
+        <button type="button" class="btn btn--primary open-devis">Demande de dépannage</button>
+        <div class="chips-row">
+          <a class="chip chip--tel" href="tel:024284035">02 428 40 35</a>
+          <a class="chip chip--mail" href="mailto:info@climpro.be">info@climpro.be</a>
+        </div>
+      </div>
+
+      <ul class="trust a-reveal" aria-label="Preuves de confiance">
+        <!-- Pas d'avis Google ni mention "Techniciens certifiés" -->
+        <li>Interventions rapides</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Bouton d’appel flottant -->
+  <a class="call-float" href="tel:024284035" aria-label="Appeler ClimPro">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.58a1 1 0 01-.91 1A19 19 0 013 5.91a1 1 0 011-.91H7.6a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.3 2.3z"/>
+    </svg>
+  </a>
+
+  <main>
+    <section class="intro">
+      <div class="container">
+        <h1 class="section__title a-reveal">Dépannages toutes marques</h1>
+        <p class="a-reveal">Intervention en 24h – Bruxelles & Brabant. Toutes marques (Daikin, LG, Fujitsu, Mitsubishi, Panasonic…).</p>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <div class="repair a-reveal">
+          <div>
+            <h2 class="section__title">Dépannage rapide et efficace</h2>
+            <p>Une panne de climatiseur&nbsp;? Appareil qui ne chauffe plus, ne refroidit plus ou affiche un code d’erreur&nbsp;? Pas de panique.</p>
+            <p>Nous intervenons rapidement dans la région de Bruxelles pour diagnostiquer et réparer votre système, quelle que soit la marque (Daikin, LG, Mitsubishi, Samsung, Fujitsu, Panasonic, etc.). Nous prenons en charge les climatiseurs monosplit, multisplit, gainables, plafonniers ou muraux résidentiel et pro.</p>
+            <ul class="checklist">
+              <li>Diagnostic précis et transparent</li>
+              <li>Devis clair avant intervention</li>
+              <li>Pièces d’origine & réparation soignée</li>
+              <li>Tests finaux + conseils d’utilisation</li>
+            </ul>
+            <div class="steps cards">
+              <div class="card"><h3>1) Diagnostic</h3><p>Recherche de panne, relevé des codes erreurs, contrôle des paramètres clés.</p></div>
+              <div class="card"><h3>2) Devis</h3><p>Devis simple et transparent (pièces & main d’œuvre) avant toute réparation.</p></div>
+              <div class="card"><h3>3) Réparation</h3><p>Remplacement des pièces défectueuses, nettoyage, réglages.</p></div>
+              <div class="card"><h3>4) Test & conseils</h3><p>Essais complets, conseils pour éviter la récidive et optimiser la consommation.</p></div>
+            </div>
+          </div>
+
+          <!-- DROITE : image + CTA en dessous -->
+          <div>
+            <div class="repair__media">
+    <picture>
+  <source srcset="assets/img/depart.avif?v=6" type="image/avif">
+  <source srcset="assets/img/depart.webp?v=6" type="image/webp">
+  <img
+    src="assets/img/depart.webp?v=6"
+    alt="Technicien en route pour un dépannage de climatisation"
+    loading="lazy"
+    decoding="async"
+  >
+</picture>
+            </div>
+            <div class="repair__cta">
+              <button type="button" class="btn btn--primary open-devis">Demande de dépannage</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title a-reveal">FAQ dépannage</h2>
+        <details class="a-reveal" style="margin-bottom:10px;"><summary><strong>Intervention en combien de temps&nbsp;?</strong></summary><p>Nous visons une intervention sous 24h ouvrées à Bruxelles et périphérie.</p></details>
+        <details class="a-reveal" style="margin-bottom:10px;"><summary><strong>Travaillez-vous sur toutes les marques&nbsp;?</strong></summary><p>Oui : Daikin, LG, Mitsubishi, Samsung, Fujitsu, Panasonic, etc.</p></details>
+        <details class="a-reveal" style="margin-bottom:10px;"><summary><strong>Et si la panne nécessite une pièce&nbsp;?</strong></summary><p>Nous proposons un devis avec la pièce d’origine et planifions la pose rapidement.</p></details>
+        <div class="cta-row a-reveal" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <button type="button" class="btn btn--primary open-devis">Demander un devis</button>
+          <a href="tel:024284035" class="chip chip--tel">02 428 40 35</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="devisModal" role="dialog" aria-modal="true" aria-labelledby="devisTitle" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__head">
+        <h3 class="modal__title" id="devisTitle">Demande de dépannage</h3>
+        <button class="modal__close" type="button" data-close-modal aria-label="Fermer le formulaire"><span class="x1"></span><span class="x2"></span></button>
+      </div>
+
+      <form id="form-devis" class="form" aria-label="Formulaire de dépannage"
+            action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
+        <input type="hidden" name="page_source" id="page_source" value="">
+        <input type="text" name="hp" id="hp" style="display:none" tabindex="-1" autocomplete="off">
+        <fieldset>
+          <legend id="form-title">Demande de dépannage</legend>
+          <div class="form__row">
+            <div class="field"><label for="fullname">Prénom & Nom *</label><input id="fullname" name="fullname" required autocomplete="name"></div>
+            <div class="field"><label for="postal">Code postal *</label><input id="postal" name="postal" inputmode="numeric" pattern="[0-9]{4,5}" required></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="email">Email (ou téléphone) *</label><input id="email" name="email" type="email" autocomplete="email"></div>
+            <div class="field"><label for="phone">Téléphone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="02 428 40 35"></div>
+          </div>
+          <div class="form__row">
+            <div class="field">
+              <label for="service">Service souhaité *</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Choisir…</option>
+                <option>Installation climatisation</option>
+                <option>Entretien</option>
+                <option>Dépannage</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="appareils">Nombre d’appareils (optionnel)</label>
+              <select id="appareils" name="appareils">
+                <option value="">—</option>
+                <option>1</option><option>2</option><option>3</option>
+                <option>4</option><option>5</option><option>6+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="message">Votre message *</label><textarea id="message" name="message" rows="5" required></textarea></div>
+          <div class="field field--check"><label for="consent"><input type="checkbox" id="consent" name="consent" required> J’accepte d’être recontacté(e) par Climpro.</label></div>
+          <div class="form__actions"><button type="submit" class="btn btn--primary" id="form-cta">Envoyer la demande</button><p class="form__legal">Champs requis marqués *. Réponse sous 24h ouvrées.</p></div>
+          <div id="formSuccess" class="form__success" role="status" aria-live="polite" hidden>Merci ! Votre demande a bien été envoyée. Nous vous contactons très vite.</div>
+          <input type="hidden" name="_subject" value="NOUVELLE DEMANDE — Climpro">
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand"><p>CLIMPRO — L’expertise depuis 20 ans</p></div>
+      <nav class="footer__links" aria-label="Liens pied de page">
+        <a href="installation.html">Installation</a>
+        <a href="entretien.html">Entretien</a>
+        <a href="depannage.html">Dépannage</a>
+        <a href="index.html#devis">Devis</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer__legal">
+        <p>© <span id="year"></span> ClimPro. Tous droits réservés. ·
+          <a href="conditions-d-utilisation.html">Conditions d’utilisation</a> ·
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton “remonter en haut” (flèche noire) -->
+  <button id="myBtn" aria-label="Revenir en haut" title="Haut">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-7 7h4v7h6v-7h4z"/>
+    </svg>
+  </button>
+
+  <style>
+    /* Style du bouton */
+    #myBtn{
+      display:none;
+      position:fixed; bottom:20px; right:20px;
+      z-index:999;
+      width:48px; height:48px; border-radius:999px;
+      border:1px solid #0f172a; background:#fff; color:#0f172a;
+      cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.15);
+      place-items:center; /* activé quand display:grid via JS */
+    }
+    #myBtn:hover{ transform: translateY(-2px); }
+    @media (max-width:720px){
+      #myBtn{ right:88px; }
+    }
+  </style>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('myBtn');
+      if(!btn) return;
+
+      const showAt = 100;
+      function onScroll(){
+        if(window.scrollY > showAt){ btn.style.display = 'grid'; }
+        else{ btn.style.display = 'none'; }
+      }
+      window.addEventListener('scroll', onScroll, { passive:true });
+      onScroll();
+
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(reduce){
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }else{
+          window.scrollTo({ top:0, behavior:'smooth' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
