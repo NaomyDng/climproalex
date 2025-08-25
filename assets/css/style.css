@@ -726,31 +726,32 @@ h6 {
 
 @media (max-width: 768px){
   header.header .container.nav-inner{
-    justify-content: space-between !important; /* logo à droite, menu à gauche */
-    padding: 0 20px !important; /* espace intérieur équilibré */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important; /* pousse aux extrémités */
+    padding: 0 16px !important;
   }
 
-  /* Logo (un peu rentré) */
-  header.header a.hamburger-wrap{
+  /* Hamburger à gauche */
+  header.header .hamburger{
+    order: 1 !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  /* Logo à droite */
+  header.header .logo-wrap{
+    order: 2 !important;
     margin: 0 !important;
-    transform: none !important;
-    margin-right: 12px !important;  /* espace avec le bord droit */
+    margin-left: auto !important;
+    margin-right: 0 !important;
   }
 
-  header.header img.hamburger{
+  header.header img.logo{
     height: 48px !important;
     width: auto !important;
-    margin: 0 !important;
   }
 
-  /* Hamburger (un peu rentré à gauche) */
-  header.header .logo{
-    margin-left: 12px !important;   /* espace avec le bord gauche */
-    margin-right: 0 !important;
-    order: -1 !important;           /* garde le bouton avant le logo */
-  }
-
-  /* Contacts masqués sur mobile */
+  /* Contacts masqués */
   header.header .quick-contacts{ display: none !important; }
 }
-
