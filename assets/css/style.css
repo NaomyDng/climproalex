@@ -180,8 +180,17 @@ img{ max-width:100%; display:block }
 }
 
 .hero__overlay{
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
   z-index: 1;
   background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58));
+  pointer-events: none;
+  contain: paint;
+}
+@supports (overflow: clip){
+  .hero{ overflow: clip; }
 }
 
 .hero__content{
