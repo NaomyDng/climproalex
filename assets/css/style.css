@@ -508,12 +508,6 @@ img, video, svg, canvas { max-width: 100%; height: auto; display: block; }
 .header{ height:var(--header-h) !important; }
 .nav-inner{ min-height:var(--header-h) !important; }
 
-/* Stabilise le contenu du hero (badges/titre) */
-.hero__content{ position:relative; z-index:2; }
-.hero__badge{ display:inline-block; min-height:24px; }
-.hero__title{ margin:0 0 .4em; }
-.trust{ margin:0; padding:0; }
-
 /* Menu en overlay (n'affecte pas le layout quand il s'ouvre) */
 .menu{
   position:fixed !important; inset:0 !important;
@@ -534,11 +528,6 @@ h1{ font-size: var(--fs-h1); line-height:1.15; margin:0 0 .5em; }
 h2{ font-size: var(--fs-h2); line-height:1.2;  margin:1em 0 .5em; }
 h3{ font-size: var(--fs-h3); line-height:1.25; margin:1em 0 .5em; }
 :is(section, article, aside, nav) h1{ font-size: var(--fs-h1); }
-
-/* Contraste : on garde ton bleu, on renforce la lisibilité via l’overlay */
-.hero__overlay{
-  background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58)) !important;
-}
 
 /* Focus clavier visible (gagne des points a11y, nul impact perf) */
 a:focus-visible, button:focus-visible{
