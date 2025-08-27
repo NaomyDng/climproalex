@@ -142,23 +142,33 @@ img{ max-width:100%; display:block }
 .call-float:hover{ background: var(--brand-2); }
 .call-float svg{ width: 28px; height: 28px; }
 
-/* ===== HERO (corrigé, image = overlay, CLS zéro) ===== */
-.hero {
+/* ===== HERO (final, couvre l'écran - header) ===== */
+
+/* Assure-toi d'avoir cette variable : */
+:root{ --header-h: 64px; } /* si déjà présente ailleurs, ne pas dupliquer */
+
+.hero{
   position: relative;
-  min-height: 100vh;
+  /* occupe la hauteur visible - la hauteur du header fixe */
+  height: calc(100svh - var(--header-h));
+  margin-top: var(--header-h);   /* évite que le header recouvre le hero */
+  width: 100%;
   display: grid;
   place-items: center;
   text-align: center;
   color: #fff;
+  overflow: hidden;              /* rien ne dépasse */
 }
 
-.hero__bg {
+.hero__bg,
+.hero__overlay{
   position: absolute;
   inset: 0;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.hero__bg img {
+.hero__bg img{
   position: absolute;
   inset: 0;
   width: 100%;
@@ -166,28 +176,36 @@ img{ max-width:100%; display:block }
   object-fit: cover;
   object-position: center;
   display: block;
-  transform: none; /* supprime le zoom */
+  transform: none !important;     /* supprime tout zoom résiduel */
 }
 
-.hero__overlay {
-  position: absolute;
-  inset: 0;
+.hero__overlay{
   z-index: 1;
   background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58));
 }
-/* ↓↓ Resserre l'espace entre la nav et le titre */
-.hero__content{ position:relative; z-index:2; padding:72px 12px 40px; }
-.hero__badge{
-  display:inline-block; padding:.5rem .9rem; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
-  border-radius:999px; font-weight:700; letter-spacing:.3px; backdrop-filter: blur(2px);
+
+.hero__content{
+  position: relative;
+  z-index: 2;
+  padding: 72px 12px 40px; /* garde ton spacing interne */
 }
-/* ↓↓ Légère réduction des marges titre */
+
+/* Typo/CTA identiques à avant (on laisse tel quel) */
+.hero__badge{
+  display:inline-block; padding:.5rem .9rem; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25); border-radius:999px; font-weight:700; letter-spacing:.3px;
+  backdrop-filter: blur(2px);
+}
 .hero__title{ font-size: clamp(1.6rem, 2.5vw + 1rem, 3rem); line-height:1.15; margin:12px 0 10px }
 .hero__title span{ display:block; font-size: clamp(1rem, 1vw + .6rem, 1.25rem); opacity:.95; font-weight:600 }
-/* ↓↓ Gaps plus serrés pour CTA/chips */
 .hero__cta .chips-row{ margin-top:8px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap }
 .trust{ list-style:none; padding:0; margin:18px 0 0; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; opacity:.95 }
 .trust li{ background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); padding:.35rem .6rem; border-radius:999px }
+
+/* Mobile : on garde la même logique, svh gère déjà la barre d'adresse */
+@media (max-width: 720px){
+  .hero{ height: calc(100svh - var(--header-h)); }
+}
 
 /* ===== Compteur (si utilisé) ===== */
 .counter{
