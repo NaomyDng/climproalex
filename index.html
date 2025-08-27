@@ -171,21 +171,31 @@
 
   <!-- HERO (img prioritaire pour LCP) -->
   <section class="hero" aria-label="ClimPro Hero">
-    <div class="hero__bg">
-      <picture>
-        <source srcset="assets/img/home.avif?v=7" type="image/avif">
-        <source srcset="assets/img/home.webp?v=7" type="image/webp">
-        <img
-  src="assets/img/home.webp?v=7"
-  alt="Climatisation experte à Bruxelles"
-  fetchpriority="high"
-  decoding="async"
-  sizes="100vw"
-  width="1600" height="900"
-  style="aspect-ratio:16/9;width:100%;height:auto;object-fit:cover;display:block"
-/>
-      </picture>
-    </div>
+<div class="hero__bg">
+  <picture>
+    <source
+      type="image/avif"
+      srcset="
+        assets/img/home.avif?v=7 768w,
+        assets/img/home.avif?v=7 1200w,
+        assets/img/home.avif?v=7 1600w">
+    <source
+      type="image/webp"
+      srcset="
+        assets/img/home.webp?v=7 768w,
+        assets/img/home.webp?v=7 1200w,
+        assets/img/home.webp?v=7 1600w">
+    <img
+      src="assets/img/home.webp?v=7"
+      alt="Climatisation experte à Bruxelles"
+      fetchpriority="high"
+      decoding="async"
+      sizes="100vw"
+      width="1600" height="900"
+      style="aspect-ratio:16/9;width:100%;height:auto;object-fit:cover;display:block"
+    >
+  </picture>
+</div>
     <div class="hero__overlay"></div>
 
     <div class="hero__content">
