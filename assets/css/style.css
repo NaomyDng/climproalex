@@ -664,3 +664,36 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   }
   .header .logo-wrap{ margin-left: 0 !important; }
 }
+/* =========================================================
+   PATCH #2 — Ajustement logo + hamburger
+   ========================================================= */
+
+/* Desktop */
+@media (min-width: 1024px){
+  .header .logo{
+    height: 72px !important;       /* logo plus grand (avant 56px) */
+    max-width: 220px !important;   /* autorise plus large */
+  }
+  .header .hamburger{
+    margin-left: -12px !important; /* pousse un peu plus à gauche */
+  }
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .header .logo{
+    height: 64px !important;       /* logo plus grand qu’avant */
+    max-width: 200px !important;
+  }
+  .header .hamburger{
+    margin-left: -8px !important;  /* hamburger encore un peu plus collé au bord */
+  }
+}
+
+/* Ultra petits écrans */
+@media (max-width: 480px){
+  .header .logo{
+    height: 56px !important;       /* jamais trop petit */
+    max-width: 180px !important;
+  }
+}
