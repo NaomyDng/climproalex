@@ -606,3 +606,61 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   position: relative !important;
   z-index: 2 !important;
 }
+/* =========================================================
+   PATCH — LOGO HEADER (mobile & desktop)
+   But : taille lisible sur mobile, pas collé à gauche en desktop
+   ========================================================= */
+
+/* Base: on annule les décalages et on fixe une taille saine */
+.header .logo-wrap{
+  height: 64px !important;
+  margin-left: 0 !important;      /* supprime le -90px qui colle à gauche */
+  margin-top: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.header .logo{
+  height: 56px !important;        /* taille standard dans la barre */
+  width: auto !important;
+  max-width: 180px !important;
+  margin: 0 !important;
+}
+
+/* Desktop : garde le logo lisible et pas collé au bord */
+@media (min-width: 1024px){
+  .header .nav-inner{ padding-left: 12px !important; } /* petit coussin à gauche */
+  .header .logo-wrap{ margin-left: 0 !important; }      /* sécurité */
+  .header .logo{ height: 56px !important; }             /* cohérent avec la barre */
+}
+
+/* Mobile : le logo était devenu minuscule à cause de règles 36/48px.
+   On force une taille confortable et on évite tout chevauchement. */
+@media (max-width: 720px){
+  .header .logo-wrap{
+    height: 56px !important;
+    margin-left: 0 !important;
+  }
+  .header .logo{
+    height: 52px !important;      /* >48px et >>36px, donc plus lisible */
+    width: auto !important;
+    margin: 0 !important;
+  }
+  /* si tu utilises la version “burger à gauche / logo à droite”, garde-la,
+     mais on retire toute marge négative */
+  .header .hamburger{ margin: 0 !important; }
+}
+
+/* Ultra-petits écrans : empêche la chute à 36px imposée ailleurs */
+@media (max-width: 480px){
+  .header .logo{ height: 48px !important; } /* jamais en dessous de 48px */
+}
+
+/* Sécurité : neutralise les anciennes variantes qui remontaient la taille
+   à 140/160/180px ou poussaient le logo avec des marges négatives */
+@media (min-width: 721px){
+  .header .logo{
+    height: 56px !important;
+    max-width: 180px !important;
+  }
+  .header .logo-wrap{ margin-left: 0 !important; }
+}
