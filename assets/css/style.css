@@ -51,7 +51,6 @@ img{ max-width:100%; display:block }
   margin-top:-62px;
   filter: drop-shadow(0 10px 16px rgba(0,0,0,.14));
 }
-/* Sheen bleu sur le logo */
 .logo-wrap::after{
   content:""; position:absolute; top:-22px; left:-22px;
   width:calc(100% + 44px); height:calc(100% + 44px);
@@ -95,7 +94,6 @@ img{ max-width:100%; display:block }
   2.6%{ transform: translateX(120%); }
   100%{ transform: translateX(120%); }
 }
-/* pas d'effet sur tel/mail du header */
 .quick-contacts .chip::before{ content:none; animation:none; }
 .quick-contacts .chip::after{ content:none; }
 .quick-contacts .chip .chip-trace,
@@ -127,7 +125,7 @@ img{ max-width:100%; display:block }
 .call-float{
   position: fixed;
   right: 20px;
-  bottom: calc(20px + 56px); /* au-dessus du bouton backToTop */
+  bottom: calc(20px + 56px);
   z-index: 60;
   width: 60px;
   height: 60px;
@@ -142,53 +140,48 @@ img{ max-width:100%; display:block }
 .call-float:hover{ background: var(--brand-2); }
 .call-float svg{ width: 28px; height: 28px; }
 
-/* ===== HERO (final, couvre l'écran - header) ===== */
-
-/* Assure-toi d'avoir cette variable : */
-:root{ --header-h: 64px; } /* si déjà présente ailleurs, ne pas dupliquer */
+/* ===== HERO (corrigé, overlay qui colle) ===== */
+:root{ --header-h: 64px; }
 
 .hero{
   position: relative;
-  /* occupe la hauteur visible - la hauteur du header fixe */
-  height: calc(100svh - var(--header-h));
-  margin-top: var(--header-h);   /* évite que le header recouvre le hero */
+  min-height: 100svh;           /* couvre tout l'écran utile */
   width: 100%;
   display: grid;
   place-items: center;
   text-align: center;
   color: #fff;
-  overflow: hidden;              /* rien ne dépasse */
-}
-
-.hero__bg,
-.hero__overlay{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hero__overlay{
-  position: absolute;
-  inset: 0;
-  inline-size: 100%;
-  block-size: 100%;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58));
-  pointer-events: none;
-  contain: paint;
+  overflow: hidden;             /* rien ne dépasse */
 }
 @supports (overflow: clip){
-  .hero{ overflow: clip; }
+  .hero{ overflow: clip; }      /* plus strict si supporté */
+}
+
+.hero__bg{ position:absolute; inset:0; z-index:0; }
+.hero__bg img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  display:block;
+  transform:none !important;    /* pas de zoom parasite */
+}
+
+/* >>> Le VOILE (overlay) */
+.hero__overlay{
+  position:absolute; inset:0;
+  inline-size:100%;
+  block-size:100%;
+  z-index:1;
+  background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58));
+  pointer-events:none;          /* pas d’impact interaction */
+  contain: paint;               /* micro perf */
 }
 
 .hero__content{
-  position: relative;
-  z-index: 2;
-  padding: 72px 12px 40px; /* garde ton spacing interne */
+  position:relative; z-index:2;
+  padding: calc(var(--header-h) + 8px) 12px 40px; /* espace sous header fixe */
 }
 
-/* Typo/CTA identiques à avant (on laisse tel quel) */
 .hero__badge{
   display:inline-block; padding:.5rem .9rem; background:rgba(255,255,255,.12);
   border:1px solid rgba(255,255,255,.25); border-radius:999px; font-weight:700; letter-spacing:.3px;
@@ -200,9 +193,10 @@ img{ max-width:100%; display:block }
 .trust{ list-style:none; padding:0; margin:18px 0 0; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; opacity:.95 }
 .trust li{ background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); padding:.35rem .6rem; border-radius:999px }
 
-/* Mobile : on garde la même logique, svh gère déjà la barre d'adresse */
+/* Mobile : même logique, svh gère la barre d’adresse */
 @media (max-width: 720px){
-  .hero{ height: calc(100svh - var(--header-h)); }
+  .hero{ min-height: 100svh; }
+  .hero__title{ font-size: clamp(1.4rem, 4.2vw + .8rem, 2.2rem); }
 }
 
 /* ===== Compteur (si utilisé) ===== */
@@ -238,25 +232,19 @@ img{ max-width:100%; display:block }
   padding:.8rem 1.05rem; border-radius:12px; font-weight:800; border:1px solid transparent; cursor:pointer;
 }
 .btn--primary{
-  background:#0ea5e9;   /* bleu conforme AA */
-  color:#0b1220;
+  background:#0ea5e9; color:#0b1220;
   box-shadow: 0 6px 20px rgba(2,6,23,.25);
 }
-.btn--primary:hover{
-  background:#0369a1;   /* hover un peu plus foncé */
-  color:#fff;
-}
+.btn--primary:hover{ background:#0369a1; color:#fff; }
 .btn--ghost{ background:transparent; color:#e2e8f0; border-color:rgba(148,163,184,.35) }
 .btn--ghost:hover{ border-color:#e2e8f0 }
 
 /* ===== Sections ===== */
-/* ↓↓ Resserre l'espace vertical global */
 .section{ padding:40px 0 }
 .section--light{ background:#f8fafc }
 .section__title{ font-size: clamp(1.4rem, 1.4vw + 1rem, 2rem); margin:0 0 12px }
 
 /* ===== Cards ===== */
-/* ↓↓ Gaps plus serrés pour réduire l'espace photo/texte */
 .cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }
 .card{
   background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:16px; box-shadow: var(--shadow);
@@ -294,7 +282,6 @@ input, select, textarea{
 .form__success{
   margin-top:10px; background:#e8fbe9; border:1px solid #86efac; color:#065f46; padding:.65rem .9rem; border-radius:12px;
 }
-/* case à cocher alignée */
 .field--check label{ display:flex; align-items:center; gap:10px; }
 .field--check input[type="checkbox"]{
   width:auto !important; height:auto; margin:0; flex:0 0 auto;
@@ -376,14 +363,11 @@ input, select, textarea{
   .form__row{ grid-template-columns:1fr; }
   .contact{ grid-template-columns:1fr; }
   .counter{ left:auto; right:12px; transform:none; }
-  .hero__title{ font-size: clamp(1.4rem, 4.2vw + .8rem, 2.2rem); }
-  .call-float{ bottom: 20px; } /* le bouton descend un peu */
-  #backToTop{ right: 88px; } /* décale pour éviter le chevauchement */
-  /* Cartes : par défaut en colonne */
+  .call-float{ bottom: 20px; }
+  #backToTop{ right: 88px; }
   .section .cards{ grid-template-columns:1fr; }
   .section .cards > .card{ width:100%; justify-self:stretch; }
 
-  /* Accueil : “Nos services” en triangle (2 + 1 centré) */
   #services .cards{ grid-template-columns: 1fr 1fr; }
   #services .cards > a.card:nth-child(1){ grid-column:1; }
   #services .cards > a.card:nth-child(2){ grid-column:2; }
@@ -391,7 +375,6 @@ input, select, textarea{
     grid-column:1 / -1; justify-self:center; width:92%;
   }
 
-  /* Avis Google en triangle */
   #avis .reviews{ grid-template-columns: 1fr 1fr; }
   #avis .reviews > .review:nth-child(1){ grid-column:1; }
   #avis .reviews > .review:nth-child(2){ grid-column:2; }
@@ -399,7 +382,6 @@ input, select, textarea{
     grid-column:1 / -1; justify-self:center; width:92%;
   }
 
-  /* Installation : “Notre processus” en triangle (section non-light) */
   .section:not(.section--light) .cards{ grid-template-columns:1fr 1fr; }
   .section:not(.section--light) .cards > .card:nth-child(1){ grid-column:1; }
   .section:not(.section--light) .cards > .card:nth-child(2){ grid-column:2; }
@@ -407,7 +389,6 @@ input, select, textarea{
     grid-column:1 / -1; justify-self:center; width:92%;
   }
 
-  /* Installation : “Pourquoi nous choisir” en colonne (section light) */
   .section.section--light .cards{ grid-template-columns:1fr; }
 }
 
@@ -430,8 +411,6 @@ img, video, svg, canvas { max-width: 100%; height: auto; display: block; }
 }
 
 /* ===== Mobile fixes: header alignment + media height ===== */
-
-/* Header: logo + burger perfectly centered on phones */
 @media (max-width: 720px){
   .nav-inner{
     height:64px;
@@ -442,81 +421,64 @@ img, video, svg, canvas { max-width: 100%; height: auto; display: block; }
     justify-content: space-between;
   }
   .logo-wrap{
-    margin-left: 0;          /* annule tout décalage négatif */
-    height: 56px;            /* borne la zone cliquable */
+    margin-left: 0;
+    height: 56px;
   }
   .logo{
-    height: 120px;           /* logo un peu plus compact que 130px */
-    margin-top: -44px;       /* remonte juste ce qu'il faut sans déborder */
+    height: 120px;
+    margin-top: -44px;
   }
   .hamburger{
     margin-right: 0;
   }
 }
 
-/* Subpages: stop images from stretching columns on mobile */
+/* Subpages media */
 @media (max-width: 980px){
   .maintenance__media,
-  .repair__media{
-    height: auto;
-  }
+  .repair__media{ height:auto; }
   .maintenance__media img,
   .repair__media img{
-    height: auto;
-    object-fit: contain;     /* évite le crop et les chevauchements */
+    height:auto; object-fit:contain;
   }
 }
 
 /* Space the “CTA under image” nicely on narrow screens */
 @media (max-width: 720px){
   .maintenance__cta,
-  .repair__cta{
-    margin-top: 10px;
-  }
+  .repair__cta{ margin-top: 10px; }
   .maintenance__cta .btn,
-  .repair__cta .btn{
-    width: 100%;
-  }
+  .repair__cta .btn{ width: 100%; }
 }
 
 /* Colonne gauche empilée (image + CTA) */
-.maintenance{ align-items: start; } /* évite les égalisations de hauteur gênantes */
+.maintenance{ align-items: start; }
 .maintenance__col{ display:flex; flex-direction:column; gap:10px; }
-
-/* Sécurise les médias pour éviter tout chevauchement */
 .maintenance__media{ height:auto; }
 .maintenance__media img{ width:100%; height:auto; object-fit:cover; display:block; }
 
-/* CTA large sur mobile */
 @media (max-width:720px){
   .maintenance__cta .btn{ width:100%; }
 }
 
-/* Ancrages : marge de scroll sous la nav */
+/* Ancrages */
 #devis, #contact { scroll-margin-top: 80px; }
-
 
 @media (min-width:768px){ .logo{ height:48px !important; } }
 @media (max-width:480px){ .logo{ height:36px !important; } }
 
-/* =====================================================================
-   >>> PATCH #2 — CLS zéro : header réservé + hero stable + menu overlay
-   ===================================================================== */
-/* Réserve la hauteur du header pour empêcher tout shift */
+/* ===== PATCH #2 — CLS zéro ===== */
 .header{ height:var(--header-h) !important; }
 .nav-inner{ min-height:var(--header-h) !important; }
 
-/* Menu en overlay (n'affecte pas le layout quand il s'ouvre) */
+/* Menu overlay sans impact layout */
 .menu{
   position:fixed !important; inset:0 !important;
   transform:translateY(-100%); transition:transform .28s ease; will-change:transform;
 }
 .menu.is-open{ transform:translateY(0); }
 
-/* =====================================================================
-   >>> PATCH #3 — Accessibilité : titres explicites + contraste + focus
-   ===================================================================== */
-/* Échelle de titres explicites (supprime l'avertissement “API obsolètes”) */
+/* ===== PATCH #3 — Accessibilité (tailles titres / focus) ===== */
 :root{
   --fs-h1: clamp(2.2rem, 5vw, 3.2rem);
   --fs-h2: clamp(1.8rem, 4vw, 2.4rem);
@@ -527,192 +489,48 @@ h2{ font-size: var(--fs-h2); line-height:1.2;  margin:1em 0 .5em; }
 h3{ font-size: var(--fs-h3); line-height:1.25; margin:1em 0 .5em; }
 :is(section, article, aside, nav) h1{ font-size: var(--fs-h1); }
 
-/* Focus clavier visible (gagne des points a11y, nul impact perf) */
 a:focus-visible, button:focus-visible{
   outline:2px solid #0b1220; outline-offset:2px; border-radius:4px;
 }
 
-/* Option si Lighthouse pointe le bouton bleu (texte trop clair) :
-   Dé-commente la ligne suivante pour un contraste AA strict sans changer ton bleu */
-/* .btn--primary{ color:#0b1220 !important; } */
-/* Menu: accepte .open ou .is-open, même comportement */
+/* (Option AA stricte possible)
+   .btn--primary{ color:#0b1220 !important; } */
+
+/* Compat .open/.is-open */
 .menu{ display:block !important; transform:translateY(-100%); transition:transform .28s ease; will-change:transform; }
 .menu.open, .menu.is-open{ transform:translateY(0); }
-/* ===== Headings: lock sizes regardless of nesting ===== */
+
+/* Headings lock (optionnel) */
 :root{
-  --h1-size: clamp(28px, 4vw, 44px);   /* adjust once here if you want */
+  --h1-size: clamp(28px, 4vw, 44px);
   --h1-line: 1.15;
-}
-
-/* Uniform size for all H1 (even inside article/aside/nav/section) */
-h1 { 
-  font-size: var(--h1-size);
-  line-height: var(--h1-line);
-  margin: 0 0 .5em;
-}
-
-/* If you also want to future-proof other headings (optional) */
-:root{
   --h2-size: clamp(22px, 3.2vw, 34px);
   --h3-size: clamp(18px, 2.6vw, 28px);
 }
+h1 { font-size: var(--h1-size); line-height: var(--h1-line); margin: 0 0 .5em; }
 h2 { font-size: var(--h2-size); line-height: 1.2; margin: 0 0 .6em; }
 h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
-/* === NAVBAR FINE + LOGO GRAND === */
-.header {
-  height: 65px !important;        /* navbar plus fine */
-}
-.nav-inner {
-  height: 50px !important;
-  align-items: center;
-}
 
-.logo-wrap {
-  height: 70px !important;       /* zone cliquable du logo */
-}
-
-.logo {
-  height: 180px !important;       /* taille réelle du logo */
-  width: auto !important;
-  max-width: none !important;
-  margin-top: -30px !important;   /* le logo déborde un peu en haut */
-}
-/* === REMONTER HAMBURGER + CHIPS === */
-.hamburger {
-  margin-top: -15px !important;   /* monte le bouton */
-}
-
-.quick-contacts {
-  margin-top: -15px !important;   /* monte les bulles */
-}
-/* === AJUSTEMENT POSITION LOGO + HAMBURGER === */
-.logo-wrap {
-  margin-left: -65px !important;  /* logo collé à gauche */
-margin-top: -40px !important;   /* monte le bouton */
-}
-
-.hamburger {
-  margin-right: 0 !important;
-  margin-left: -10px !important;  /* hamburger plus à gauche */
-}
-/* === RESET NAV + LOGO (COMME AVANT) === */
+/* Petits ajustements header (tes règles existantes) */
 .header { height: 64px !important; }
 .nav-inner { height: 64px !important; align-items: center !important; }
-
 .logo-wrap {
   height: 64px !important;
-  margin-left: -90 !important;   /* ou remets -90px si tu veux l'ancien décalage gauche */
+  margin-left: -90 !important;
   margin-top: 0 !important;
   display: flex !important; align-items: center !important;
 }
-
 .logo {
-  height: 56px !important;     /* taille standard dans la barre */
+  height: 56px !important;
   width: auto !important;
-  max-width: 180px !important;  /* garde des proportions safe */
+  max-width: 180px !important;
   margin-top: 0 !important;
   filter: drop-shadow(0 10px 16px rgba(0,0,0,.14));
 }
-
 .hamburger { margin-top: 0 !important; margin-left: 0 !important; margin-right: -18px !important; }
 .quick-contacts { margin-top: 0 !important; margin-right: -10px !important; }
 
-/* mobile (garde tes réglages existants) */
-@media (max-width: 720px){
-  .logo-wrap{ height:56px !important; }
-  .logo{ height:48px !important; }   /* compact sur mobile */
-}
-/* === OVERRIDE FINAL (desktop) === */
-@media (min-width: 721px){
-  /* 1) Annule les marges négatives qui remontent tout */
-  .header .logo-wrap{ margin-top: 0 !important; }
-  .header .quick-contacts{ display:flex !important; } /* au cas où */
-  
-  /* 2) Logo plus grand + un peu plus bas */
-  .header .logo{
-    height: 140px !important;   /* ← augmente pour plus grand (ex: 160px) */
-    width: auto !important;
-    max-width: none !important;
-    margin-top: 6px !important; /* ↓ descend le logo (ajuste: 0 / 10 / 16px) */
-  }
-
-  /* 3) Bulles (tél/email) plus basses et plus à gauche */
-  .header .quick-contacts{
-    margin-top: 10px !important;   /* ↓ descend */
-    margin-right: 50px !important; /* → plus à gauche (augmente si besoin) */
-  }
-
-  /* 4) Bouton menu (hamburger) plus bas et plus à gauche */
-  .header .hamburger{
-    margin-top: 10px !important;   /* ↓ descend */
-    margin-right: 10px !important; /* → plus à gauche */
-  }
-}
-/* ============================================================
-   TITRES — corrige l’avertissement Lighthouse (deprecated API)
-   ============================================================ */
-
-/* Taille explicite pour les H1 dans sections/article/nav/aside */
-:where(section, article, nav, aside) h1 {
-  font-size: clamp(2rem, 2vw + 1rem, 2.5rem);
-  line-height: 1.2;
-  margin-block: 0.6em 0.4em;
-}
-
-/* Échelle typographique générale */
-h1 {
-  font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
-  line-height: 1.15;
-  margin-block: 0.6em 0.4em;
-}
-h2 {
-  font-size: clamp(1.8rem, 2.2vw + 0.8rem, 2.2rem);
-  line-height: 1.2;
-  margin-block: 0.6em 0.4em;
-}
-h3 {
-  font-size: clamp(1.4rem, 1.6vw + 0.6rem, 1.6rem);
-  line-height: 1.25;
-  margin-block: 0.5em 0.3em;
-}
-h4 {
-  font-size: 1.2rem;
-  line-height: 1.3;
-  margin-block: 0.5em 0.3em;
-}
-h5 {
-  font-size: 1rem;
-  line-height: 1.35;
-  margin-block: 0.4em 0.25em;
-}
-h6 {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin-block: 0.4em 0.25em;
-}
-@media (max-width: 720px){
-  .nav-inner{
-    height:64px;
-    align-items:center;
-    padding-left: 8px;
-    padding-right: 12px;
-    gap: 8px;
-    justify-content: space-between;
-  }
-  .logo-wrap{
-    margin-left: 0;          /* annule tout décalage négatif */
-    height: 56px;            /* borne la zone cliquable */
-  }
-  .logo{
-    height: 120px;           /* logo un peu plus compact que 130px */
-    margin-top: -44px;       /* remonte juste ce qu'il faut sans déborder */
-  }
-  .hamburger{
-    margin-right: 0;
-  }
-}
-
-/* === FIX MOBILE HEADER: hamburger à gauche / logo à droite === */
+/* Mobile header swap */
 @media (max-width: 768px){
   .header .nav-inner{
     display: flex !important;
@@ -720,8 +538,6 @@ h6 {
     align-items: center !important;
     position: relative !important;
   }
-
-  /* Hamburger à gauche */
   .header .hamburger{
     order: 1 !important;
     margin: 0 !important;
@@ -730,8 +546,6 @@ h6 {
     top: 50% !important;
     transform: translateY(-50%) !important;
   }
-
-  /* Logo à droite */
   .header .logo-wrap{
     order: 2 !important;
     margin: 0 !important;
@@ -739,26 +553,13 @@ h6 {
     right: 12px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    max-width: 40vw !important; /* pour ne pas déborder */
+    max-width: 40vw !important;
   }
-
   .header .logo{
-    height: 48px !important; /* taille safe sur mobile */
-    width: auto !important;
-    margin: 0 !important;
+    height: 48px !important; width: auto !important; margin: 0 !important;
   }
-
-  /* Masquer les contacts sur mobile pour libérer la ligne */
   .header .quick-contacts{ display:none !important; }
-}
-@media (max-width: 768px){
   .hamburger{ width:44px; height:44px; display:flex; align-items:center; justify-content:center; gap:4px; }
-  .hamburger span{
-    width: 24px !important;   /* même largeur pour les 3 */
-    height: 2px !important;   /* même épaisseur */
-    margin: 0 !important;
-  }
-  /* supprime les largeurs différentes définies plus haut */
-  .hamburger span:nth-child(2),
-  .hamburger span:nth-child(3){ width:24px !important; }
+  .hamburger span{ width: 24px !important; height: 2px !important; margin: 0 !important; }
+  .hamburger span:nth-child(2), .hamburger span:nth-child(3){ width:24px !important; }
 }
