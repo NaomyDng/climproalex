@@ -563,3 +563,46 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   .hamburger span{ width: 24px !important; height: 2px !important; margin: 0 !important; }
   .hamburger span:nth-child(2), .hamburger span:nth-child(3){ width:24px !important; }
 }
+/* =========================================================
+   PATCH — VOILE HERO (force l’overlay à coller au hero)
+   ========================================================= */
+
+/* 1) Le hero devient un contexte d’empilement isolé
+      → rien de l’intérieur (voile) ne peut déborder au scroll */
+.hero{
+  isolation: isolate;          /* très léger, zéro impact perf notable */
+  overflow: hidden;            /* au cas où un parent l’aurait modifié */
+}
+
+/* 2) Sur-spécifie l’overlay du hero et neutralise tout override externe */
+.hero > .hero__overlay{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;       /* sous le contenu, au-dessus de l’image */
+  pointer-events: none !important;
+  background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58)) !important;
+  contain: paint;               /* micro-optimisation, pas de coût visible */
+}
+
+/* 3) S’assure que l’image de fond ne “pousse” pas le voile */
+.hero > .hero__bg{
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+}
+.hero > .hero__bg img{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transform: none !important;
+}
+
+/* 4) Le contenu passe au-dessus du voile */
+.hero > .hero__content{
+  position: relative !important;
+  z-index: 2 !important;
+}
