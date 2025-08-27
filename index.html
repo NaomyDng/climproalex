@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="ClimPro — 20+ ans d’expertise en climatisation" />
+  <meta property="og:title" content="ClimPro — Climatisation | Bruxelles" />
   <meta property="og:description" content="Installation, entretien, dépannage. Devis rapide. Bruxelles et environs." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.climpro.be/" />
@@ -21,9 +21,8 @@
   <link rel="preconnect" href="https://formspree.io/f/xyzdgabo" crossorigin>
   <link rel="dns-prefetch" href="https://formspree.io/f/xyzdgabo">
 
-  <!-- CSS non-bloquant -->
-  <link rel="preload" href="assets/css/style.css?v=7" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="assets/css/style.css?v=7"></noscript>
+  <!-- CSS bloquant (corrigé) -->
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
 
   <!-- JS -->
   <script defer src="assets/js/main.js?v=7"></script>
@@ -52,45 +51,37 @@
     ]
   }
   </script>
+
   <style id="nav-hotfix">
-@media (max-width:768px){
-  /* le conteneur sert de référence pour l'absolu */
-  .header .container.nav-inner{
-    position: relative !important;
-    height: 64px !important;
-    padding: 0 16px !important;  /* petit air des bords */
+  @media (max-width:768px){
+    .header .container.nav-inner{
+      position: relative !important;
+      height: 64px !important;
+      padding: 0 16px !important;
+    }
+    .header .quick-contacts{ display:none !important; }
+    .header .hamburger{
+      position: absolute !important;
+      left: 12px !important;
+      right: auto !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      margin: 0 !important;
+    }
+    .header a.logo-wrap{
+      position: absolute !important;
+      right: 12px !important;
+      left: auto !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      margin: 0 !important;
+    }
+    .header a.logo-wrap, .header .hamburger{
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
   }
-  /* cache les contacts pour libérer la ligne */
-  .header .quick-contacts{ display:none !important; }
-
-  /* HAMBURGER : collé à gauche, centré verticalement */
-  .header .hamburger{
-    position: absolute !important;
-    left: 12px !important;
-    right: auto !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    margin: 0 !important;
-  }
-
-  /* LOGO : collé à droite, centré verticalement */
-  .header a.logo-wrap{
-    position: absolute !important;
-    right: 12px !important;
-    left: auto !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    margin: 0 !important;
-  }
-
-  /* on neutralise les décalages globaux qui te faisaient sortir de l'écran */
-  .header a.logo-wrap, .header .hamburger{
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-}
-</style>
-
+  </style>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -98,8 +89,15 @@
     <div class="container nav-inner">
       <a href="#top" class="logo-wrap" aria-label="ClimPro Accueil">
         <!-- Logo laissé en webp -->
-        <img src="assets/img/logo.webp?v=7" alt="ClimPro" class="logo"
-             width="180" height="200" decoding="async" />
+        <img
+  src="assets/img/home.webp?v=7"
+  alt="Climatisation experte à Bruxelles"
+  fetchpriority="high"
+  decoding="async"
+  sizes="100vw"
+  width="1600" height="900"
+  style="aspect-ratio:16/9;width:100%;height:auto;object-fit:cover;display:block"
+/>
       </a>
 
       <nav class="quick-contacts" aria-label="Contacts rapides">
