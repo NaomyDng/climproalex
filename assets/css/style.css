@@ -744,3 +744,16 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   }
   .hero__content{ position:relative !important; z-index:2 !important; }
 }
+/* === DESKTOP : logo grand === */
+@media (min-width: 1024px){
+  .header{ height: 140px !important; }      /* barre plus haute */
+  .nav-inner{ height: 140px !important; }    /* centre verticalement */
+  .logo-wrap{ height: 140px !important; margin-left: 0 !important; }
+
+  /* plus spécifique que .logo, pour écraser tes 56px !important */
+  .header .logo{
+    height: 120px !important;                /* <-- augmente ici (ex: 120 / 140) */
+    max-width: none !important;              /* ne pas limiter la largeur */
+    margin: 0 !important;
+  }
+}
