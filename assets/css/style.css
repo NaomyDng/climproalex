@@ -734,7 +734,7 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     .hero{ min-height: calc(100dvh - var(--header-h)) !important; }
   }
   @supports (height: 100svh){
-    .hero{ min-height: calc(100svh - var(--header-h)) !important; }
+    .hero{ min-height: calc(100svh - var(--header-h) + 60px) !important; }
   }
 
   /* 2) Le fond image occupe 100% du hero
