@@ -665,8 +665,8 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
 /* Desktop */
 @media (min-width: 1024px){
   .header .logo{
-    height: 72px !important;       /* logo plus grand (avant 56px) */
-    max-width: 220px !important;   /* autorise plus large */
+    height: 90px !important;       /* logo plus grand (avant 56px) */
+    max-width: 260px !important;   /* autorise plus large */
   }
   .header .hamburger{
     margin-left: -12px !important; /* pousse un peu plus à gauche */
