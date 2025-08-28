@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ClimPro — style.css (clean)
+   ClimPro — style.css
    ========================================================================== */
 
 /* ===== Variables / Base ===== */
@@ -192,12 +192,6 @@ img{ max-width:100%; display:block }
 .hero__cta .chips-row{ margin-top:8px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap }
 .trust{ list-style:none; padding:0; margin:18px 0 0; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; opacity:.95 }
 .trust li{ background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); padding:.35rem .6rem; border-radius:999px }
-
-/* Mobile : même logique, svh gère la barre d’adresse */
-@media (max-width: 720px){
-  .hero{ min-height: 100svh; }
-  .hero__title{ font-size: clamp(1.4rem, 4.2vw + .8rem, 2.2rem); }
-}
 
 /* ===== Compteur (si utilisé) ===== */
 .counter{
@@ -697,108 +691,56 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     max-width: 180px !important;
   }
 }
-
-/* Fix hero sur mobile uniquement */
-@media (max-width: 768px){
-  .hero{
-    height:100vh; /* occupe tout l'écran mobile */
-    margin-top: var(--header-h);
-  }
-  @supports (height: 100dvh){
-    .hero{
-      height:100dvh; /* mieux géré sur iOS/Android récents */
-    }
-  }
-  .hero__bg picture,
-  .hero__bg img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-}
-/* ======= FIX HERO — MOBILE UNIQUEMENT (plein écran) ======= */
+/* ===== HERO MOBILE — version finale, forcée ===== */
 @media (max-width: 768px){
 
-  /* 1) Le conteneur hero prend toute la hauteur visible,
-        en tenant compte du header fixe */
+  /* le conteneur couvre tout l'écran visible, moins le header fixe */
   .hero{
     margin-top: var(--header-h);
     min-height: calc(100vh - var(--header-h));
-    display: block;
+    position: relative;
     overflow: hidden;
     isolation: isolate;
   }
-  /* iOS/Android récents : hauteur dynamique encore plus fiable */
   @supports (height: 100dvh){
     .hero{ min-height: calc(100dvh - var(--header-h)) !important; }
   }
   @supports (height: 100svh){
-    .hero{ min-height: calc(100svh - var(--header-h) + 60px) !important; }
+    .hero{ min-height: calc(100svh - var(--header-h)) !important; }
   }
 
-  /* 2) Le fond image occupe 100% du hero
-        (on écrase le style inline "height:auto") */
-  .hero__bg{ position:absolute !important; inset:0 !important; z-index:0 !important; }
+  /* le fond occupe 100% du hero */
+  .hero__bg,
   .hero__bg picture,
   .hero__bg img{
-    position:absolute !important;
-    inset:0 !important;
-    width:100% !important;
-    height:100% !important;      /* <- clé : remplace l’inline */
-    object-fit:cover !important;
-    display:block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
   }
 
-  /* 3) Le voile (ombre) colle parfaitement au hero */
+  /* neutralise tout style inline (ratio/height:auto) si resté dans le HTML */
+  #hero-img{
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transform: none !important;
+    display: block !important;
+  }
+
+  /* voile et contenu au bon z-index */
   .hero__overlay{
     position:absolute !important;
     inset:0 !important;
     width:100% !important;
     height:100% !important;
     z-index:1 !important;
-    background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58)) !important;
     pointer-events:none !important;
   }
-
-  /* 4) Le contenu passe au-dessus */
   .hero__content{ position:relative !important; z-index:2 !important; }
-}
-/* ===== Hero plein écran — MOBILE UNIQUEMENT ===== */
-@media (max-width: 720px){
-  .hero{
-    margin-top: var(--header-h);                  /* garde la place du header */
-    min-height: calc(100svh - var(--header-h));   /* prend toute la hauteur visible */
-    width: 100%;
-    display: block;
-    overflow: hidden;
-  }
-
-  .hero__bg{
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero__bg img{
-    width: 100%;
-    height: 100%;           /* image forcée en plein écran */
-    object-fit: cover;      /* couvre l’espace comme le voile */
-    display: block;
-  }
-
-  .hero__overlay{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58));
-    pointer-events: none;
-  }
-
-  .hero__content{
-    position: relative;
-    z-index: 2; /* contenu au-dessus */
-  }
 }
