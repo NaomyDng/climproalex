@@ -717,4 +717,50 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     display:block;
   }
 }
+/* ======= FIX HERO — MOBILE UNIQUEMENT (plein écran) ======= */
+@media (max-width: 768px){
 
+  /* 1) Le conteneur hero prend toute la hauteur visible,
+        en tenant compte du header fixe */
+  .hero{
+    margin-top: var(--header-h);
+    min-height: calc(100vh - var(--header-h));
+    display: block;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* iOS/Android récents : hauteur dynamique encore plus fiable */
+  @supports (height: 100dvh){
+    .hero{ min-height: calc(100dvh - var(--header-h)) !important; }
+  }
+  @supports (height: 100svh){
+    .hero{ min-height: calc(100svh - var(--header-h)) !important; }
+  }
+
+  /* 2) Le fond image occupe 100% du hero
+        (on écrase le style inline "height:auto") */
+  .hero__bg{ position:absolute !important; inset:0 !important; z-index:0 !important; }
+  .hero__bg picture,
+  .hero__bg img{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;      /* <- clé : remplace l’inline */
+    object-fit:cover !important;
+    display:block !important;
+  }
+
+  /* 3) Le voile (ombre) colle parfaitement au hero */
+  .hero__overlay{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    z-index:1 !important;
+    background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58)) !important;
+    pointer-events:none !important;
+  }
+
+  /* 4) Le contenu passe au-dessus */
+  .hero__content{ position:relative !important; z-index:2 !important; }
+}
