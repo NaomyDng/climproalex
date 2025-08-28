@@ -775,3 +775,21 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     margin: -20px 0 !important; /* décale pour centrer malgré la barre fine */
   }
 }
+/* === LOGO PLUS GRAND SANS AUGMENTER LA NAVBAR === */
+@media (min-width: 1024px){
+  .header { height: 64px !important; }       /* garde la nav fine */
+  .nav-inner { height: 64px !important; }
+
+  .logo-wrap{
+    height: 64px !important;                 /* reste alignée avec la nav */
+    overflow: visible !important;            /* permet au logo de dépasser */
+    display: flex; align-items: center;
+  }
+
+  .header .logo{
+    height: 120px !important;                /* le logo devient grand */
+    width: auto !important;
+    max-width: none !important;
+    margin-top: -28px !important;            /* le centre reste aligné */
+  }
+}
