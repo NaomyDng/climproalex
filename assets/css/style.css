@@ -757,3 +757,21 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     margin: 0 !important;
   }
 }
+/* === LOGO PLUS GRAND, NAVBAR RESTE FINE === */
+@media (min-width: 1024px){
+  .header { height: 64px !important; }           /* nav bar fine */
+  .nav-inner { height: 64px !important; }
+
+  .logo-wrap {
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;                /* permet au logo de dépasser */
+  }
+
+  .header .logo {
+    height: 120px !important;   /* augmente ici: 100 / 120 / 140 selon besoin */
+    width: auto !important;
+    margin: -20px 0 !important; /* décale pour centrer malgré la barre fine */
+  }
+}
