@@ -30,20 +30,28 @@
   <meta property="og:description" content="Installation, entretien, dépannage. Devis rapide. Bruxelles et environs." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.climpro.be/" />
-  <meta property="og:image" content="https://www.climpro.be/assets/img/home.webp?v=8" />
+  <meta property="og:image" content="https://www.climpro.be/assets/img/home.webp?v=9" />
 
   <!-- Perfs -->
-  <link rel="preload" as="image" href="assets/img/home.webp?v=8" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/img/logo.webp?v=8" fetchpriority="high" />
+  <link rel="preload" as="image"
+      href="assets/img/home-1200.avif?v=9"
+      imagesrcset="assets/img/home.avif?v=9 480w,
+                   assets/img/home.avif?v=9 768w,
+                   assets/img/home.avif?v=9 1200w,
+                   assets/img/home.avif?v=9 1600w"
+      imagesizes="(max-width:600px) 100vw, (max-width:1024px) 90vw, 1200px"
+      fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/logo.webp?v=9" fetchpriority="high" />
   <link rel="preconnect" href="https://formspree.io/f/xyzdgabo" crossorigin>
   <link rel="dns-prefetch" href="https://formspree.io/f/xyzdgabo">
 
  <!-- CSS principal en non-bloquant -->
-<link rel="preload" as="style" href="assets/css/style.css?v=8" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="assets/css/style.css?v=8"></noscript>
+<link rel="preload" as="style" href="assets/css/style.css?v=9">
+<link rel="stylesheet" href="assets/css/style.css?v=9" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="assets/css/style.css?v=9"></noscript>
 
   <!-- JS -->
-  <script defer src="assets/js/main.js?v=8"></script>
+  <script defer src="assets/js/main.js?v=9"></script>
 
   <!-- Schéma LocalBusiness -->
   <script type="application/ld+json">
@@ -94,7 +102,7 @@
       transform: translateY(-50%) !important;
       margin: 0 !important;
     }
-    .header a.logo-wrap, .header .hamburger{
+    .header a.-wrap, .header .hamburger{
       margin-left: 0 !important;
       margin-right: 0 !important;
     }
@@ -121,7 +129,7 @@
     class="logo"
     width="400"
     height="400"
-    fetchpriority="high"
+    fetchpriority="low"
     decoding="async"
     loading="eager"
   />
@@ -180,17 +188,17 @@
     <source
       type="image/avif"
       srcset="
-        assets/img/home.avif?v=8 768w,
-        assets/img/home.avif?v=8 1200w,
-        assets/img/home.avif?v=8 1600w">
+        assets/img/home.avif?v=9 768w,
+        assets/img/home.avif?v=9 1200w,
+        assets/img/home.avif?v=9 1600w">
     <source
       type="image/webp"
       srcset="
-        assets/img/home.webp?v=8 768w,
-        assets/img/home.webp?v=8 1200w,
-        assets/img/home.webp?v=8 1600w">
+        assets/img/home.webp?v=9 768w,
+        assets/img/home.webp?v=9 1200w,
+        assets/img/home.webp?v=9 1600w">
     <img
-      src="assets/img/home.webp?v=8"
+      src="assets/img/home.webp?v=9"
       alt="Climatisation experte à Bruxelles"
       fetchpriority="high"
       decoding="async"
