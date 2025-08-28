@@ -4,7 +4,11 @@
   <!-- Critical CSS minimal : header + hero + overlay -->
 <style id="critical-css">
   :root{ --header-h: 64px; }
-  body{ margin:0; font-family: ui-sans-serif, system-ui; }
+  body{ margin:0; font-family: ui-sans-serif, system-ui; background:#fff; color:#0f172a; line-height:1.6 }
+  h1,h2,h3{ margin:0; font-weight:600 }
+  p{ margin:0 0 1em }
+  a{ color:inherit; text-decoration:none }
+  button{ font-family:inherit }
   .header{ position:fixed; top:0; left:0; right:0; height:var(--header-h); background:#fff; z-index:50; }
   .nav-inner{ height:var(--header-h); display:flex; align-items:center; }
   .logo{ height:56px; width:auto; }
