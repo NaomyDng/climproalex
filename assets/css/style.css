@@ -458,7 +458,7 @@ img, video, svg, canvas { max-width: 100%; height: auto; display: block; }
 /* Ancrages */
 #devis, #contact { scroll-margin-top: 80px; }
 
-@media (min-width:768px){ .logo{ height:48px !important; } }
+@media (min-width:1024px){ .logo{ height:120px !important; } }
 @media (max-width:480px){ .logo{ height:36px !important; } }
 
 /* ===== PATCH #2 — CLS zéro ===== */
