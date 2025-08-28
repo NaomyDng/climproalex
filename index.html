@@ -2,21 +2,22 @@
 <html lang="fr">
 <head>
   <!-- Critical CSS minimal : header + hero + overlay -->
-<style id="critical-css">
-  :root{ --header-h: 64px; }
-  body{ margin:0; font-family: ui-sans-serif, system-ui; background:#fff; color:#0f172a; line-height:1.6 }
-  h1,h2,h3{ margin:0; font-weight:600 }
-  p{ margin:0 0 1em }
-  a{ color:inherit; text-decoration:none }
-  button{ font-family:inherit }
-  .header{ position:fixed; top:0; left:0; right:0; height:var(--header-h); background:#fff; z-index:50; }
-  .nav-inner{ height:var(--header-h); display:flex; align-items:center; }
-  .logo{ height:56px; width:auto; }
-  .hero{ position:relative; height:calc(100svh - var(--header-h)); margin-top:var(--header-h); }
-  .hero__bg,.hero__overlay{ position:absolute; inset:0; width:100%; height:100%; }
-  .hero__overlay{ background:linear-gradient(180deg,rgba(2,6,23,.42),rgba(2,6,23,.58)); }
-  .hero__content{ position:relative; z-index:2; padding:72px 12px 40px; text-align:center; color:#fff; }
-</style>
+  <style id="critical-css">
+    :root{ --header-h: 64px; }
+    body{ margin:0; font-family: ui-sans-serif, system-ui; background:#fff; color:#0f172a; line-height:1.6 }
+    h1,h2,h3{ margin:0; font-weight:600 }
+    p{ margin:0 0 1em }
+    a{ color:inherit; text-decoration:none }
+    button{ font-family:inherit }
+    .header{ position:fixed; top:0; left:0; right:0; height:var(--header-h); background:#fff; z-index:50; }
+    .nav-inner{ height:var(--header-h); display:flex; align-items:center; }
+    .logo{ height:56px; width:auto; }
+    .hero{ position:relative; height:calc(100svh - var(--header-h)); margin-top:var(--header-h); }
+    .hero__bg,.hero__overlay{ position:absolute; inset:0; width:100%; height:100%; }
+    .hero__overlay{ background:linear-gradient(180deg,rgba(2,6,23,.42),rgba(2,6,23,.58)); }
+    .hero__content{ position:relative; z-index:2; padding:72px 12px 40px; text-align:center; color:#fff; }
+  </style>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ClimPro — Climatisation | Bruxelles</title>
@@ -30,30 +31,24 @@
   <meta property="og:description" content="Installation, entretien, dépannage. Devis rapide. Bruxelles et environs." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.climpro.be/" />
-  <meta property="og:image" content="https://www.climpro.be/assets/img/home.webp?v=9" />
+  <meta property="og:image" content="https://www.climpro.be/assets/img/home.webp?v=10" />
 
-  <!-- Perfs -->
-  <link rel="preload" as="image"
-      href="assets/img/home-1200.avif?v=9"
-      imagesrcset="assets/img/home.avif?v=9 480w,
-                   assets/img/home.avif?v=9 768w,
-                   assets/img/home.avif?v=9 1200w,
-                   assets/img/home.avif?v=9 1600w"
-      imagesizes="(max-width:600px) 100vw, (max-width:1024px) 90vw, 1200px"
-      fetchpriority="high">
-  <link rel="preload" as="image" href="assets/img/logo.webp?v=9" fetchpriority="high" />
-  <link rel="preconnect" href="https://formspree.io/f/xyzdgabo" crossorigin>
-  <link rel="dns-prefetch" href="https://formspree.io/f/xyzdgabo">
+  <!-- Early connections (corrigé : domaine seul) -->
+  <link rel="preconnect" href="https://formspree.io" crossorigin>
+  <link rel="dns-prefetch" href="https://formspree.io">
 
- <!-- CSS principal en non-bloquant -->
-<link rel="preload" as="style" href="assets/css/style.css?v=9">
-<link rel="stylesheet" href="assets/css/style.css?v=9" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="assets/css/style.css?v=9"></noscript>
+  <!-- LCP PRELOAD (aligné avec <picture>) -->
+  <link rel="preload" as="image" href="assets/img/home.avif?v=10" fetchpriority="high">
 
-  <!-- JS -->
-  <script defer src="assets/js/main.js?v=9"></script>
+  <!-- CSS principal en non-bloquant (version bump pour casser le cache) -->
+  <link rel="preload" as="style" href="assets/css/style.css?v=10">
+  <link rel="stylesheet" href="assets/css/style.css?v=10" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="assets/css/style.css?v=10"></noscript>
 
-  <!-- Schéma LocalBusiness -->
+  <!-- JS (defer déjà OK) -->
+  <script defer src="assets/js/main.js?v=10"></script>
+
+  <!-- Schéma LocalBusiness (inchangé) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -78,31 +73,32 @@
   }
   </script>
 
+  <!-- Hotfix nav (petite correction de typos si besoin ailleurs) -->
   <style id="nav-hotfix">
-  @media (max-width:768px){
-    .header .container.nav-inner{
-      position: relative !important;
-      height: 64px !important;
-      padding: 0 16px !important;
+    @media (max-width:768px){
+      .header .container.nav-inner{
+        position: relative !important;
+        height: 64px !important;
+        padding: 0 16px !important;
+      }
+      .header .quick-contacts{ display:none !important; }
+      .header .hamburger{
+        position: absolute !important;
+        left: 12px !important;
+        right: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin: 0 !important;
+      }
+      .header a.logo-wrap{
+        position: absolute !important;
+        right: 12px !important;
+        left: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin: 0 !important;
+      }
     }
-    .header .quick-contacts{ display:none !important; }
-    .header .hamburger{
-      position: absolute !important;
-      left: 12px !important;
-      right: auto !important;
-      top: 50% !important;
-      transform: translateY(-50%) !important;
-      margin: 0 !important;
-    }
-    .header a.logo-wrap{
-      position: absolute !important;
-      right: 12px !important;
-      left: auto !important;
-      top: 50% !important;
-      transform: translateY(-50%) !important;
-      margin: 0 !important;
-    }
-  }
   </style>
 </head>
 <body>
