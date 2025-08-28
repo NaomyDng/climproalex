@@ -315,56 +315,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- Bouton “remonter en haut” (flèche noire) -->
-  <button id="myBtn" aria-label="Revenir en haut" title="Haut">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-      <path d="M12 4l-7 7h4v7h6v-7h4z"/>
-    </svg>
-  </button>
-
-  <style>
-    /* Style du bouton */
-    #myBtn{
-      display:none;                 /* caché par défaut */
-      position:fixed; bottom:20px; right:20px;
-      z-index:999;
-      width:48px; height:48px; border-radius:999px;
-      border:1px solid #0f172a; background:#fff; color:#0f172a;
-      cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.15);
-      place-items:center; /* pris en compte quand on met display:grid via JS */
-    }
-    #myBtn:hover{ transform: translateY(-2px); }
-
-    @media (max-width:720px){
-      #myBtn{ right:88px; }
-    }
-  </style>
-
-  <script>
-    (function(){
-      const btn = document.getElementById('myBtn');
-      if(!btn) return;
-
-      const showAt = 100; // px de scroll avant d’afficher
-      function onScroll(){
-        if(window.scrollY > showAt){ btn.style.display = 'grid'; }
-        else{ btn.style.display = 'none'; }
-      }
-      window.addEventListener('scroll', onScroll, { passive:true });
-      onScroll();
-
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if(reduce){
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-        }else{
-          window.scrollTo({ top:0, behavior:'smooth' });
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
