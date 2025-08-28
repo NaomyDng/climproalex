@@ -793,3 +793,15 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     margin-top: -28px !important;            /* le centre reste aligné */
   }
 }
+/* === Ajustement position logo + hamburger === */
+@media (min-width:1024px){ /* Desktop */
+  .header .logo-wrap{
+    margin-left: -20px !important; /* pousse le logo un peu à gauche */
+  }
+  .header .hamburger{
+    margin-right: -10px !important; /* colle un peu plus le hamburger à droite */
+  }
+  .header .quick-contacts{
+    margin-right: 0 !important; /* pousse les chips un peu plus à droite */
+  }
+}
