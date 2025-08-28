@@ -17,7 +17,16 @@
     .hero__overlay{ background:linear-gradient(180deg,rgba(2,6,23,.42),rgba(2,6,23,.58)); }
     .hero__content{ position:relative; z-index:2; padding:72px 12px 40px; text-align:center; color:#fff; }
   </style>
-
+<style id="lcp-no-anim">
+  /* Neutralise toute anim/transition sur l’élément LCP (le fond du hero) */
+  .hero__bg, .hero__bg * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+</style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ClimPro — Climatisation | Bruxelles</title>
@@ -119,8 +128,8 @@
            400px"
     alt="ClimPro"
     class="logo"
-    width="400"
-    height="400"
+    width="800"
+    height="533"
     fetchpriority="low"
     decoding="async"
     loading="eager"
