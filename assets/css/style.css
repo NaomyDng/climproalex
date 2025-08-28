@@ -698,4 +698,23 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   }
 }
 
+/* Fix hero sur mobile uniquement */
+@media (max-width: 768px){
+  .hero{
+    height:100vh; /* occupe tout l'écran mobile */
+    margin-top: var(--header-h);
+  }
+  @supports (height: 100dvh){
+    .hero{
+      height:100dvh; /* mieux géré sur iOS/Android récents */
+    }
+  }
+  .hero__bg picture,
+  .hero__bg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+}
 
