@@ -787,7 +787,7 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   }
 
   .header .logo{
-    height: 180px !important;                /* le logo devient grand */
+    height: 160px !important;                /* le logo devient grand */
     width: auto !important;
     max-width: none !important;
     margin-top: -28px !important;            /* le centre reste aligné */
