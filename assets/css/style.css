@@ -764,3 +764,41 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   /* 4) Le contenu passe au-dessus */
   .hero__content{ position:relative !important; z-index:2 !important; }
 }
+/* ===== Hero plein écran — MOBILE UNIQUEMENT ===== */
+@media (max-width: 720px){
+  .hero{
+    margin-top: var(--header-h);                  /* garde la place du header */
+    min-height: calc(100svh - var(--header-h));   /* prend toute la hauteur visible */
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
+
+  .hero__bg{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__bg img{
+    width: 100%;
+    height: 100%;           /* image forcée en plein écran */
+    object-fit: cover;      /* couvre l’espace comme le voile */
+    display: block;
+  }
+
+  .hero__overlay{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(2,6,23,.42), rgba(2,6,23,.58));
+    pointer-events: none;
+  }
+
+  .hero__content{
+    position: relative;
+    z-index: 2; /* contenu au-dessus */
+  }
+}
