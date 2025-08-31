@@ -456,10 +456,6 @@ img, video, svg, canvas { max-width: 100%; height: auto; display: block; }
 
 @media (min-width:1024px){ .logo{ height:120px !important; } }
 
-/* ===== PATCH #2 — CLS zéro ===== */
-.header{ height:var(--header-h) !important; }
-.nav-inner{ min-height:var(--header-h) !important; }
-
 /* Menu overlay sans impact layout */
 .menu{
   position:fixed !important; inset:0 !important;
@@ -501,8 +497,6 @@ h2 { font-size: var(--h2-size); line-height: 1.2; margin: 0 0 .6em; }
 h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
 
 /* Petits ajustements header (tes règles existantes) */
-.header { height: 64px !important; }
-.nav-inner { height: 64px !important; align-items: center !important; }
 .logo-wrap {
   height: 64px !important;
   margin-left: -90px !important;
