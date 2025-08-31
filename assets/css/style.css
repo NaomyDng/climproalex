@@ -1041,3 +1041,10 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   body{ font-size: 16px !important; }
   p, li{ font-size: 15px !important; }
 }
+/* ===== Lisibilité mobile ===== */
+html{ font-size:16px; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ font-size:1rem; line-height:1.6; }
+@media (max-width:480px){
+  body{ font-size:1rem; } /* force ~16px mini */
+}
+small, .small, .fine-print { font-size:0.875rem; } /* ~14px, évite <12px */
