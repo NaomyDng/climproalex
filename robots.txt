@@ -1,3 +1,7 @@
+User-agent: AdsBot-Google
+Allow: /
+
 User-agent: *
 Allow: /
-Sitemap: https://climpro.be/sitemap.xml
+
+Sitemap: https://www.climpro.be/sitemap.xml
