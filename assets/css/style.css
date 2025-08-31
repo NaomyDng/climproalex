@@ -819,3 +819,30 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     height: 58px !important;     /* un poil plus compact sur petits écrans */
   }
 }
+/* >>> OVERRIDE EXAGÉRÉ — logo énorme desktop + mobile */
+.logo{ 
+  max-width: none !important; 
+}
+
+@media (min-width: 768px){   /* Desktop */
+  .logo{ 
+    height: 120px !important;    /* ÉNORME sur desktop */
+    margin-top: -28px !important; 
+    z-index: 1000 !important;
+  }
+}
+
+@media (max-width: 767.98px){   /* Tablette / mobile */
+  .logo{ 
+    height: 90px !important;     /* énorme en mobile */
+    margin-top: -20px !important;
+    z-index: 1000 !important;
+  }
+}
+
+@media (max-width: 480px){   /* Petits téléphones */
+  .logo{ 
+    height: 80px !important;     /* un peu réduit pour petits écrans */
+    margin-top: -16px !important;
+  }
+}
