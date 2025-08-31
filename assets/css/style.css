@@ -505,7 +505,7 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
 .nav-inner { height: 64px !important; align-items: center !important; }
 .logo-wrap {
   height: 64px !important;
-  margin-left: -90 !important;
+  margin-left: -90px !important;
   margin-top: 0 !important;
   display: flex !important; align-items: center !important;
 }
@@ -879,4 +879,43 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     height: 140px !important;       /* énorme mais réduit sur petits mobiles */
     margin: 0 !important;
   }
+}
+/* === FIX MOBILE: rétrécir la nav malgré #nav-hotfix === */
+@media (max-width: 767.98px){
+  /* met la variable mobile au bon niveau pour le spacing du hero */
+  :root{ --header-h: 50px; }
+
+  /* barre + conteneur */
+  .header{ height: 50px !important; }
+  .nav-inner{ height: 50px !important; }
+
+  /* casse la règle plus spécifique du <head> */
+  .header .container.nav-inner{ height: 50px !important; }
+
+  /* wrapper + logo (logo géant conservé) */
+  .header .logo-wrap{
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+  .header .logo{
+    height: 160px !important;   /* garde ton logo énorme */
+    margin: 0 !important;
+    width: auto !important;
+  }
+
+  /* hamburger centré verticalement */
+  .header .hamburger{
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+/* petits téléphones */
+@media (max-width: 480px){
+  .header .logo{ height: 140px !important; }
 }
