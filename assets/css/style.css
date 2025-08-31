@@ -839,26 +839,44 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
     margin-top: -16px !important;
   }
 }
-/* === LOGO MOBILE ENORME — NAVBAR RESTE FINE (64px) === */
+/* === LOGO MOBILE ÉNORME + ALIGNEMENT HAMBURGER === */
 @media (max-width: 767.98px){
-  .header{ overflow: visible; } /* autorise le logo à dépasser */
+  /* Nav bar plus fine */
+  .header{
+    height: 56px !important;        /* réduite (au lieu de 64px) */
+    overflow: visible !important;
+  }
+  .nav-inner{
+    height: 56px !important;        /* cohérence avec la barre */
+    align-items: center !important; /* centre verticalement hamburger + logo */
+  }
 
   .header .logo-wrap{
-    height: 64px !important;    /* la nav reste fine */
+    height: 56px !important;        /* s’aligne sur la nav */
     overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
   .header .logo{
-    height: 140px !important;   /* ENORME logo */
+    height: 160px !important;       /* ENCORE PLUS GRAND */
     width: auto !important;
-    margin-top: -38px !important; /* centre visuellement dans 64px */
+    margin: 0 !important;           /* retire le décalage vertical */
     z-index: 1000 !important;
+  }
+
+  .header .hamburger{
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important; /* centre le burger verticalement */
   }
 }
 
 @media (max-width: 480px){
   .header .logo{
-    height: 120px !important;   /* un peu moins énorme pour petits téléphones */
-    margin-top: -28px !important;
+    height: 140px !important;       /* énorme mais réduit sur petits mobiles */
+    margin: 0 !important;
   }
 }
