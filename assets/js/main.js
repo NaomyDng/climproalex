@@ -5,18 +5,6 @@ const qs  = (s, p=document) => p.querySelector(s);
 const qsa = (s, p=document) => [...p.querySelectorAll(s)];
 
 /* =========================
-   Header shadow au scroll
-   ========================= */
-const header = qs('.header');
-const onScroll = () => {
-  if (!header) return;
-  if (window.scrollY > 6) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-};
-window.addEventListener('scroll', onScroll, { passive:true });
-onScroll();
-
-/* =========================
    Menu hamburger (toggle + a11y)
    ========================= */
 const ham = qs('#hamburger');
