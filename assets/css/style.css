@@ -967,3 +967,52 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
 @media (max-width: 480px){
   .header .logo{ height: 140px !important; }
 }
+/* === MOBILE — header figé (hauteur identique, scrolled ou non) === */
+@media (max-width: 767.98px){
+  :root{ --header-h: 50px !important; }
+
+  /* Hauteur identique + pas d'anim, même si JS met du style inline */
+  .header,
+  .header.scrolled,
+  .header[style]{
+    height: 50px !important;
+    transition: none !important;
+    padding: 0 !important;
+  }
+
+  .nav-inner,
+  .header.scrolled .nav-inner,
+  .nav-inner[style],
+  .header .container.nav-inner{
+    height: 50px !important;
+    min-height: 50px !important;   /* <-- c’est ce qui manquait */
+    transition: none !important;
+  }
+
+  .header .logo-wrap{
+    height: 50px !important;
+    min-height: 50px !important;   /* sécurise */
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+
+  .header .logo{
+    height: 160px !important;
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .header .hamburger{
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 480px){
+  .header .logo{ height: 140px !important; }
+}
