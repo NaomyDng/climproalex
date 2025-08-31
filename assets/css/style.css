@@ -1037,3 +1037,44 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   /* kill any animation/shrink effects */
   .header, .nav-inner, .logo, .logo-wrap{ transition: none !important; }
 }
+/* === ANTI-BOUNCE NAV MOBILE — FIX FINAL === */
+@media (max-width: 767.98px){
+  /* Hauteur fixe, quoi qu'il arrive */
+  .header,
+  .nav-inner,
+  .header.scrolled,
+  .header.scrolled .nav-inner {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+
+  /* Ombre constante (ou mets none si tu n'en veux pas) */
+  .header,
+  .header.scrolled {
+    box-shadow: 0 6px 24px rgba(2,6,23,.06) !important;
+  }
+
+  /* Logo et hamburger restent centrés malgré la hauteur fixe */
+  .header .logo-wrap{
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+  .header .logo{
+    height: 160px !important; /* ta taille géante */
+    margin: 0 !important;
+    width: auto !important;
+    z-index: 1000 !important;
+  }
+  .header .hamburger{
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Aligne aussi la variable utilisée par le hero */
+  :root{ --header-h: 50px !important; }
+}
