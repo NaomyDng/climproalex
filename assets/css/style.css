@@ -1037,3 +1037,7 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
   /* kill any animation/shrink effects */
   .header, .nav-inner, .logo, .logo-wrap{ transition: none !important; }
 }
+@media (max-width: 767.98px){
+  body{ font-size: 16px !important; }
+  p, li{ font-size: 15px !important; }
+}
