@@ -1010,3 +1010,30 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
 @media (max-width: 480px){
   .header .logo{ height: 140px !important; }
 }
+/* ==== MOBILE: header always reduced (no resize on scroll) ==== */
+@media (max-width: 767.98px){
+  :root{ --header-h: 50px !important; }              /* hero spacing stays correct */
+
+  /* same height in BOTH states */
+  .header,
+  .header.scrolled{
+    height: 50px !important;
+  }
+
+  .nav-inner,
+  .header .container,
+  .header .container.nav-inner{
+    height: 50px !important;
+    padding-block: 0 !important;
+  }
+
+  .header .logo-wrap{ height: 50px !important; }
+  .header .logo,
+  .header.scrolled .logo{
+    height: 160px !important;      /* your giant logo */
+    margin: 0 !important;
+  }
+
+  /* kill any animation/shrink effects */
+  .header, .nav-inner, .logo, .logo-wrap{ transition: none !important; }
+}
