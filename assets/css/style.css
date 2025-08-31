@@ -919,3 +919,51 @@ h3 { font-size: var(--h3-size); line-height: 1.25; margin: 0 0 .6em; }
 @media (max-width: 480px){
   .header .logo{ height: 140px !important; }
 }
+/* === MOBILE — header figé (pas de variation au scroll) === */
+@media (max-width: 767.98px){
+  /* valeur unique pour le spacing du hero */
+  :root{ --header-h: 50px; }
+
+  /* 1) même hauteur avec ou sans .scrolled, même si un style inline arrive */
+  .header,
+  .header.scrolled,
+  .header[style]{
+    height: 50px !important;
+    transition: none !important; /* empêche l'anim de hauteur */
+  }
+
+  .nav-inner,
+  .header.scrolled .nav-inner,
+  .nav-inner[style]{
+    height: 50px !important;
+    transition: none !important;
+  }
+
+  /* 2) wrapper + logo restent alignés, logo géant conservé */
+  .header .logo-wrap{
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+  .header .logo{
+    height: 160px !important;   /* adapte si tu veux encore + grand */
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  /* 3) hamburger centré verticalement */
+  .header .hamburger{
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+/* très petits écrans : garde un peu de marge */
+@media (max-width: 480px){
+  .header .logo{ height: 140px !important; }
+}
