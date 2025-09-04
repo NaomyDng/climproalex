@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.climpro.be/</loc></url>
-  <url><loc>https://www.climpro.be/installation.html</loc></url>
-  <url><loc>https://www.climpro.be/entretien.html</loc></url>
-  <url><loc>https://www.climpro.be/depannage.html</loc></url>
+  <url>
+    <loc>https://www.climpro.be/</loc>
+    <lastmod>2025-09-04T18:17:41+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.climpro.be/installation.html</loc>
+    <lastmod>2025-09-04T18:52:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.climpro.be/entretien.html</loc>
+    <lastmod>2025-09-04T18:52:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.climpro.be/depannage.html</loc>
+    <lastmod>2025-09-04T18:52:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.climpro.be/conditions-d-utilisation.html</loc>
+    <lastmod>2025-09-04T18:52:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.climpro.be/politique-de-confidentialite.html</loc>
+    <lastmod>2025-09-04T18:52:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>
