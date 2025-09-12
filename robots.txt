@@ -4,4 +4,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.climpro.be/sitemap.xml
+Sitemap: https://climpro.be/sitemap.xml
