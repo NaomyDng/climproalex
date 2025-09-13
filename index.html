@@ -1,134 +1,136 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Critical CSS minimal : header + hero + overlay -->
-  <style id="critical-css">
-    :root{ --header-h: 64px; }
-    body{ margin:0; font-family: ui-sans-serif, system-ui; background:#fff; color:#0f172a; line-height:1.6 }
-    h1,h2,h3{ margin:0; font-weight:600 }
-    p{ margin:0 0 1em }
-    a{ color:inherit; text-decoration:none }
-    button{ font-family:inherit }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    /* Header & nav */
-    .header{ position:fixed; top:0; left:0; right:0; height:var(--header-h); background:#fff; z-index:50; }
-    .nav-inner{ height:var(--header-h); display:flex; align-items:center; }
+  <!-- Critical CSS minimal : header + hero + overlay -->
+  <style id="critical-css">
+    :root{ --header-h: 64px; }
+    body{ margin:0; font-family: ui-sans-serif, system-ui; background:#fff; color:#0f172a; line-height:1.6 }
+    h1,h2,h3{ margin:0; font-weight:600 }
+    p{ margin:0 0 1em }
+    a{ color:inherit; text-decoration:none }
+    button{ font-family:inherit }
 
-    /* >>> ICI: logo par défaut + gros en mobile directement dans le critical */
-    .logo{ height:56px; width:auto; } /* desktop par défaut */
-    @media (max-width: 767.98px){
-      .logo{ height:90px; }          /* énorme en mobile (gagne avant le CSS externe) */
-    }
-    @media (max-width: 480px){
-      .logo{ height:80px; }          /* un peu moins sur très petits écrans */
-    }
+    /* Header & nav */
+    .header{ position:fixed; top:0; left:0; right:0; height:var(--header-h); background:#fff; z-index:50; }
+    .nav-inner{ height:var(--header-h); display:flex; align-items:center; }
 
-    /* Hero */
-    .hero{ position:relative; height:calc(100svh - var(--header-h)); margin-top:var(--header-h); }
-    .hero__bg,.hero__overlay{ position:absolute; inset:0; width:100%; height:100%; }
-    .hero__overlay{ background:linear-gradient(180deg,rgba(2,6,23,.42),rgba(2,6,23,.58)); }
-    .hero__content{ position:relative; z-index:2; padding:72px 12px 40px; text-align:center; color:#fff; }
-  </style>
+    /* >>> ICI: logo par défaut + gros en mobile directement dans le critical */
+    .logo{ height:56px; width:auto; } /* desktop par défaut */
+    @media (max-width: 767.98px){
+      .logo{ height:90px; }          /* énorme en mobile (gagne avant le CSS externe) */
+    }
+    @media (max-width: 480px){
+      .logo{ height:80px; }          /* un peu moins sur très petits écrans */
+    }
 
-  <style id="lcp-no-anim">
-    /* Neutralise toute anim/transition sur l’élément LCP (le fond du hero) */
-    .hero__bg, .hero__bg * {
-      animation: none !important;
-      transition: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-      filter: none !important;
-    }
-  </style>
+    /* Hero */
+    .hero{ position:relative; height:calc(100svh - var(--header-h)); margin-top:var(--header-h); }
+    .hero__bg,.hero__overlay{ position:absolute; inset:0; width:100%; height:100%; }
+    .hero__overlay{ background:linear-gradient(180deg,rgba(2,6,23,.42),rgba(2,6,23,.58)); }
+    .hero__content{ position:relative; z-index:2; padding:72px 12px 40px; text-align:center; color:#fff; }
+  </style>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>ClimPro — Climatisation | Bruxelles</title>
-  <meta name="description" content="ClimPro, 20+ ans d’expertise en climatisation à Bruxelles. Installation, entretien, dépannage. Devis rapide, intervention soignée." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://www.climpro.be/" />
-  <meta name="theme-color" content="#0ea5e9" />
+  <style id="lcp-no-anim">
+    /* Neutralise toute anim/transition sur l’élément LCP (le fond du hero) */
+    .hero__bg, .hero__bg * {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+  </style>
 
-  <!-- CSS principal CHARGÉ IMMÉDIATEMENT (on supprime le hack print) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=18" />
+  <title>ClimPro — Climatisation | Bruxelles</title>
+  <meta name="description" content="ClimPro, 20+ ans d’expertise en climatisation à Bruxelles. Installation, entretien, dépannage. Devis rapide, intervention soignée." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.climpro.be/" />
+  <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="ClimPro — Climatisation | Bruxelles" />
-  <meta property="og:description" content="Installation, entretien, dépannage. Devis rapide. Bruxelles et environs." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.climpro.be/" />
-  <meta property="og:image" content="https://www.climpro.be/assets/img/home.avif?v=18" />
+  <!-- CSS principal CHARGÉ IMMÉDIATEMENT (on supprime le hack print) -->
+  <link rel="stylesheet" href="assets/css/style.css?v=18" />
 
-  <!-- Early connections -->
-  <link rel="preconnect" href="https://formspree.io" crossorigin>
-  <link rel="dns-prefetch" href="https://formspree.io">
+  <!-- Open Graph -->
+  <meta property="og:title" content="ClimPro — Climatisation | Bruxelles" />
+  <meta property="og:description" content="Installation, entretien, dépannage. Devis rapide. Bruxelles et environs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.climpro.be/" />
+  <meta property="og:image" content="https://www.climpro.be/assets/img/home.avif?v=18" />
 
-  <!-- LCP PRELOAD (même URL que l'image du hero) -->
-  <link rel="preload" as="image" href="assets/img/home.avif?v=18" fetchpriority="high">
+  <!-- Early connections -->
+  <link rel="preconnect" href="https://formspree.io" crossorigin>
+  <link rel="dns-prefetch" href="https://formspree.io">
 
-  <!-- JS en defer -->
-  <script defer src="assets/js/main.js?v=18"></script>
+  <!-- LCP PRELOAD (même URL que l'image du hero) -->
+  <link rel="preload" as="image" href="assets/img/home.avif?v=18" fetchpriority="high">
 
-  <!-- Schéma LocalBusiness (inchangé sauf l'image versionnée) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"HVACBusiness",
-    "name":"Climpro",
-    "image":"https://www.climpro.be/assets/img/home.avif?v=18",
-    "url":"https://www.climpro.be/",
-    "telephone":"+32-2-428-40-35",
-    "email":"info@climpro.be",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"54 Boulevard Du Régent  1000 Bruxelles",
-      "addressLocality":"Bruxelles",
-      "postalCode":"1070",
-      "addressCountry":"BE"
-    },
-    "vatID":"BE0564.697.277",
-    "areaServed":["Bruxelles-Capitale","Brabant flamand","Brabant wallon"],
-    "openingHoursSpecification":[
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}
-    ]
-  }
-  </script>
+  <!-- JS en defer -->
+  <script defer src="assets/js/main.js?v=18"></script>
 
-  <!-- Hotfix nav (on laisse tel quel) -->
-  <style id="nav-hotfix">
-    @media (max-width:768px){
-      .header .container.nav-inner{ position: relative !important; height: 64px !important; padding: 0 16px !important; }
-      .header .quick-contacts{ display:none !important; }
-      .header .hamburger{ position: absolute !important; left: 12px !important; right: auto !important; top: 50% !important; transform: translateY(-50%) !important; margin: 0 !important; }
-      .header a.logo-wrap{ position: absolute !important; right: 12px !important; left: auto !important; top: 50% !important; transform: translateY(-50%) !important; margin: 0 !important; }
-    }
-  </style>
+  <!-- Schéma LocalBusiness (inchangé sauf l'image versionnée) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HVACBusiness",
+    "name":"Climpro",
+    "image":"https://www.climpro.be/assets/img/home.avif?v=18",
+    "url":"https://www.climpro.be/",
+    "telephone":"+32-2-428-40-35",
+    "email":"info@climpro.be",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"54 Boulevard Du Régent  1000 Bruxelles",
+      "addressLocality":"Bruxelles",
+      "postalCode":"1070",
+      "addressCountry":"BE"
+    },
+    "vatID":"BE0564.697.277",
+    "areaServed":["Bruxelles-Capitale","Brabant flamand","Brabant wallon"],
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}
+    ]
+  }
+  </script>
+
+  <!-- Hotfix nav (on laisse tel quel) -->
+  <style id="nav-hotfix">
+    @media (max-width:768px){
+      .header .container.nav-inner{ position: relative !important; height: 64px !important; padding: 0 16px !important; }
+      .header .quick-contacts{ display:none !important; }
+      .header .hamburger{ position: absolute !important; left: 12px !important; right: auto !important; top: 50% !important; transform: translateY(-50%) !important; margin: 0 !important; }
+      .header a.logo-wrap{ position: absolute !important; right: 12px !important; left: auto !important; top: 50% !important; transform: translateY(-50%) !important; margin: 0 !important; }
+    }
+  </style>
 </head>
 <body>
+
   <!-- NAVBAR -->
   <header class="header" id="top">
     <div class="container nav-inner">
       <a href="#top" class="logo-wrap" aria-label="ClimPro Accueil">
-  <img 
-    src="assets/img/logo-400.webp" 
-    srcset="
-      assets/img/logo.webp 200w,
-      assets/img/logo.webp 300w,
-      assets/img/logo.webp 400w
-    "
-    sizes="(max-width: 480px) 160px, 
-           (max-width: 768px) 220px, 
-           (max-width: 1280px) 300px, 
-           400px"
-    alt="ClimPro"
-    class="logo"
-    width="800"
-    height="533"
-    fetchpriority="low"
-    decoding="async"
-    loading="eager"
-  />
-</a>
+        <img
+          src="assets/img/logo-400.webp"
+          srcset="
+            assets/img/logo.webp 200w,
+            assets/img/logo.webp 300w,
+            assets/img/logo.webp 400w
+          "
+          sizes="(max-width: 480px) 160px,
+                 (max-width: 768px) 220px,
+                 (max-width: 1280px) 300px,
+                 400px"
+          alt="ClimPro"
+          class="logo"
+          width="800"
+          height="533"
+          fetchpriority="low"
+          decoding="async"
+          loading="eager"
+        />
+      </a>
       <nav class="quick-contacts" aria-label="Contacts rapides">
         <a class="chip chip--tel" href="tel:024284035" aria-label="Appeler Climpro">
           <span>02 428 40 35</span>
@@ -178,44 +180,44 @@
 
   <!-- HERO (img prioritaire pour LCP) -->
   <section class="hero" aria-label="ClimPro Hero">
-<div class="hero__bg">
-  <picture>
-    <source
-      type="image/avif"
-      srcset="
-        assets/img/home.avif?v=18 768w,
-        assets/img/home.avif?v=18 1200w,
-        assets/img/home.avif?v=18 1600w">
-    <source
-      type="image/webp"
-      srcset="
-        assets/img/home.webp?v=18 768w,
-        assets/img/home.webp?v=18 1200w,
-        assets/img/home.webp?v=18 1600w">
-    <img
-  id="hero-img"
-  src="assets/img/home.webp?v=18"
-  alt="Climatisation experte à Bruxelles"
-  fetchpriority="high"
-  decoding="async"
-  sizes="100vw"
-  width="1600" height="900"
-  style="object-fit:cover;object-position:center;display:block"
-/>
-  </picture>
-</div>
+    <div class="hero__bg">
+      <picture>
+        <source
+          type="image/avif"
+          srcset="
+            assets/img/home.avif?v=18 768w,
+            assets/img/home.avif?v=18 1200w,
+            assets/img/home.avif?v=18 1600w">
+        <source
+          type="image/webp"
+          srcset="
+            assets/img/home.webp?v=18 768w,
+            assets/img/home.webp?v=18 1200w,
+            assets/img/home.webp?v=18 1600w">
+        <img
+          id="hero-img"
+          src="assets/img/home.webp?v=18"
+          alt="Climatisation experte à Bruxelles"
+          fetchpriority="high"
+          decoding="async"
+          sizes="100vw"
+          width="1600" height="900"
+          style="object-fit:cover;object-position:center;display:block"
+        />
+      </picture>
+    </div>
     <div class="hero__overlay"></div>
 
     <div class="hero__content">
-      <div class="hero__badge a-reveal">
+      <div class="hero__badge a-reveal is-visible">
         <strong>20+ ans d’expérience</strong> • Installation • Entretien • Dépannage
       </div>
-      <h1 class="hero__title a-reveal">
+      <h1 class="hero__title a-reveal is-visible">
         CLIMATISATION
         <span>Bruxelles & périphérie</span>
       </h1>
 
-      <div class="hero__cta a-reveal">
+      <div class="hero__cta a-reveal is-visible">
         <a href="#devis" class="btn btn--primary">Demande de devis gratuit</a>
         <div class="chips-row">
           <a class="chip chip--tel" href="tel:024284035">02 428 40 35</a>
@@ -223,7 +225,7 @@
         </div>
       </div>
 
-      <ul class="trust a-reveal" aria-label="Preuves de confiance">
+      <ul class="trust a-reveal is-visible" aria-label="Preuves de confiance">
         <li>Interventions rapides</li>
       </ul>
     </div>
@@ -256,85 +258,85 @@
 
       <!-- Formulaire unifié — prêt Formspree -->
       <form id="form-devis"
-      class="form a-reveal"
-      aria-label="Formulaire de devis"
-      action="https://formspree.io/f/xyzdgabo"
-      method="POST"
-      novalidate>
+        class="form a-reveal"
+        aria-label="Formulaire de devis"
+        action="https://formspree.io/f/xyzdgabo"
+        method="POST"
+        novalidate>
 
-  <input type="hidden" name="page_source" id="page_source" value="">
-  <input type="text" name="hp" id="hp" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="page_source" id="page_source" value="ClimPro — Climatisation | Bruxelles — https://www.climpro.be/" />
+        <input type="text" name="hp" id="hp" style="display:none" tabindex="-1" autocomplete="off">
 
-  <fieldset>
-    <legend id="form-title">Demande de devis gratuit</legend>
+        <fieldset>
+          <legend id="form-title">Demande de devis gratuit</legend>
 
-    <div class="form__row">
-      <div class="field">
-        <label for="fullname">Prénom & Nom *</label>
-        <input id="fullname" name="fullname" required autocomplete="name">
-      </div>
-      <div class="field">
-        <label for="postal">Code postal *</label>
-        <input id="postal" name="postal" inputmode="numeric" pattern="[0-9]{4,5}" required>
-      </div>
-    </div>
+          <div class="form__row">
+            <div class="field">
+              <label for="fullname">Prénom & Nom *</label>
+              <input id="fullname" name="fullname" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="postal">Code postal *</label>
+              <input id="postal" name="postal" inputmode="numeric" pattern="[0-9]{4,5}" required>
+            </div>
+          </div>
 
-    <div class="form__row">
-      <div class="field">
-        <label for="email">Email*</label>
-        <input id="email" name="email" type="email" autocomplete="email">
-      </div>
-      <div class="field">
-        <label for="phone">Téléphone</label>
-        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="02 428 40 35">
-      </div>
-    </div>
+          <div class="form__row">
+            <div class="field">
+              <label for="email">Email*</label>
+              <input id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="phone">Téléphone</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="02 428 40 35">
+            </div>
+          </div>
 
-    <div class="form__row">
-      <div class="field">
-        <label for="service">Service souhaité *</label>
-        <select id="service" name="service" required>
-          <option value="" disabled selected>Choisir…</option>
-          <option>Installation climatisation</option>
-          <option>Entretien</option>
-          <option>Dépannage</option>
-          <option>Autre</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="appareils">Nombre d’appareils (optionnel)</label>
-        <select id="appareils" name="appareils">
-          <option value="">—</option>
-          <option>1</option><option>2</option><option>3</option>
-          <option>4</option><option>5</option><option>6+</option>
-        </select>
-      </div>
-    </div>
+          <div class="form__row">
+            <div class="field">
+              <label for="service">Service souhaité *</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Choisir…</option>
+                <option>Installation climatisation</option>
+                <option>Entretien</option>
+                <option>Dépannage</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="appareils">Nombre d’appareils (optionnel)</label>
+              <select id="appareils" name="appareils">
+                <option value="" selected>—</option>
+                <option>1</option><option>2</option><option>3</option>
+                <option>4</option><option>5</option><option>6+</option>
+              </select>
+            </div>
+          </div>
 
-    <div class="field">
-      <label for="message">Votre message *</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
+          <div class="field">
+            <label for="message">Votre message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
 
-    <div class="field field--check">
-      <label for="consent">
-        <input type="checkbox" id="consent" name="consent" required>
-        J’accepte d’être recontacté(e) par Climpro.
-      </label>
-    </div>
+          <div class="field field--check">
+            <label for="consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              J’accepte d’être recontacté(e) par Climpro.
+            </label>
+          </div>
 
-    <div class="form__actions">
-      <button type="submit" class="btn btn--primary" id="form-cta">Envoyer la demande</button>
-      <p class="form__legal">Champs requis marqués *. Réponse sous 24h ouvrées.</p>
-    </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary" id="form-cta">Envoyer la demande</button>
+            <p class="form__legal">Champs requis marqués *. Réponse sous 24h ouvrées.</p>
+          </div>
 
-    <div id="formSuccess" class="form__success" role="status" aria-live="polite" hidden>
-      Merci ! Votre demande a bien été envoyée. Nous vous contactons très vite.
-    </div>
+          <div id="formSuccess" class="form__success" role="status" aria-live="polite" hidden>
+            Merci ! Votre demande a bien été envoyée. Nous vous contactons très vite.
+          </div>
 
-    <input type="hidden" name="_subject" value="NOUVELLE DEMANDE — Climpro">
-  </fieldset>
-</form>
+          <input type="hidden" name="_subject" value="NOUVELLE DEMANDE — Climpro">
+        </fieldset>
+      </form>
     </div>
   </section>
 
@@ -372,12 +374,13 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="footer__legal">
-        <p>© <span id="year"></span> Climpro. Tous droits réservés. ·
+        <p>© <span id="year">2025</span> Climpro. Tous droits réservés. ·
           <a href="conditions-d-utilisation.html">Conditions d’utilisation</a> ·
           <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
         </p>
       </div>
     </div>
   </footer>
+
 </body>
 </html>
